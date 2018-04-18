@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<configuration  debug="true">
+ <contextName>logback-test</contextName>
+    <property name="logback.home" value="." />
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d %-5level %logger{36} [%L] - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+     
+ 
+    <logger name="org.apache">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="org.springframework">
+        <level value="ERROR"/>
+    </logger>
+
+    <logger name="com.dhenton9000">
+        <level value="INFO"/>
+    </logger>
+    
+    <logger name="org.thymeleaf">
+        <level value="ERROR"/>
+    </logger>
+
+    
+    <logger name="freemarker.cache">
+        <level value="ERROR"/>
+    </logger>
+      <logger name="springfox">
+        <level value="ERROR"/>
+    </logger>
+     <logger name="org.hibernate">
+        <level value="ERROR"/>
+    </logger>
+     <logger name="org.hibernate.type">
+        <level value="ERROR"/>
+    </logger>
+
+
+    <root>
+        <appender-ref ref="CONSOLE"/>
+        
+    </root>
+
+</configuration>
+

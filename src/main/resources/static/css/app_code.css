@@ -1,0 +1,32 @@
+.folderIcon
+{
+    font-size: 20px;
+    color: #963019;
+}
+
+p
+{
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
+}
+
+
+ul.listing {
+  list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#963019" cx="5" cy="5" r="4"/></svg>');
+  color: #16174f; 
+
+  margin-left: 40px;
+
+}
+
+.indent
+{
+    margin-left: 20px;
+    
+}
+
+.list-space
+{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}

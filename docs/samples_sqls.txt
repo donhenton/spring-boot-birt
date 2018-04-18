@@ -1,0 +1,22 @@
+
+-- for all users their assigned apps
+
+select userid,group_name,application_name, applications.id as app_id from users
+inner join group_assignments 
+on users.userid = group_assignments.user_id
+inner join groups
+on groups.id = group_assignments.group_id
+inner join application_groups 
+on groups.id = application_groups.group_id
+inner join applications
+on applications.id = application_groups.application_id
+and userid = 'gaw'
+
+
+--all groups that an application is in
+select applications.*, group_name from applications
+inner join application_groups 
+on applications.id = application_groups.application_id
+inner join groups
+on groups.id = application_groups.group_id
+where applications.id = 26
