@@ -42,4 +42,4 @@ copy datafiles to docker instance:
 
 outside of the docker instance in this folder run this
 
-psql -h localhost -d jdatabase -U postgres -a -q -f /Users/<username>/NetBeansProjects/spring-boot-birt/docs/postgres/birtload.sql
+psql -h localhost -d jdatabase -U postgres -a -q -f /Users/&lt;username&gt;/NetBeansProjects/spring-boot-birt/docs/postgres/birtload.sql
