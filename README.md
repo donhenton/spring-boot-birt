@@ -7,6 +7,13 @@ database. This application is deployed to heroku at http://donhenton-spring-boot
 
 If built from the plugin a specific run time associate will be built see the nbactions.xml file. Select all the checkboxes when using the wizard.
 
+## Running Locally 
+
+```
+mvn clean spring-boot:run -DskipTests=true
+```
+see also the debugit.sh file
+
 ## Launching and Overriding properties
 
 ```
