@@ -7,6 +7,10 @@ package com.dhenton9000.jpa.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Spliterator;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  *
@@ -23,12 +27,12 @@ public class EntityUtils {
         }
     }
     
-    public static <E> ArrayList<E> makeCollection(Iterable<E> iter) {
-    ArrayList<E> list = new ArrayList<E>();
-    for (E item : iter) {
-        list.add(item);
-    }
-    return list;
+    public static <E> List<E> makeCollection(Iterable<E> iter) {
+        
+    
+      return  StreamSupport.stream(iter.spliterator(),false)
+               .collect(Collectors.toList());
+        
 }
     
 }

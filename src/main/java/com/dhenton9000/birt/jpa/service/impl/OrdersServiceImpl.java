@@ -30,7 +30,7 @@ public class OrdersServiceImpl implements OrdersService {
     @Override
     public List<Orders> getAllOrders() {
         
-         Iterable<Orders> items = ordersRepository.findAll();
+        Iterable<Orders> items = ordersRepository.findAll();
         return EntityUtils.makeCollection(items);
     }
 
