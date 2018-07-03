@@ -40,6 +40,7 @@ public class Offices implements Serializable {
 
     private String officeCode;
     private String phone;
+    private String city;
     private String addressLine1;
     private String addressLine2;
     private String stateName;
@@ -83,6 +84,26 @@ public class Offices implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    
+    
+    /**
+     * @return the city
+     */
+    @Column(name = "CITY", length = 50)
+    @ApiModelProperty(example = "Bonzo Falls", required = true)
+    @Basic(optional = false)
+    public String getCity() {
+        return trimField(city);
+    }
+
+    /**
+     * @param phone the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
+    
 
     /**
      * @return the addressLine1
@@ -122,7 +143,7 @@ public class Offices implements Serializable {
      * @return the state
      */
     @Column(name = "STATE", length = 50)
-    @ApiModelProperty(example = "200 S Main", required = true)
+    @ApiModelProperty(example = "WY", required = true)
     @Basic(optional = false)
     public String getStateName() {
         return trimField(stateName);
@@ -156,7 +177,7 @@ public class Offices implements Serializable {
      * @return the postalCode
      */
     @Column(name = "POSTALCODE", length = 10)
-    @ApiModelProperty(example = "France", required = true)
+    @ApiModelProperty(example = "90027", required = true)
     @Basic(optional = false)
     public String getPostalCode() {
         return trimField(postalCode);
@@ -173,7 +194,7 @@ public class Offices implements Serializable {
      * @return the territory
      */
     @Column(name = "TERRITORY", length = 10)
-    @ApiModelProperty(example = "Northwest", required = true)
+    @ApiModelProperty(example = "Snortk", required = true)
     @Basic(optional = false)
     public String getTerritory() {
         return trimField(territory);
@@ -228,6 +249,7 @@ public class Offices implements Serializable {
     /**
      * @param employees the employees to set
      */
+     @ApiModelProperty(hidden =true)
     public void setEmployees(Set<Employees> employees) {
         this.employees = employees;
     }

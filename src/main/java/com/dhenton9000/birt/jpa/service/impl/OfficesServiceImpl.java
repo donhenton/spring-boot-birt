@@ -33,5 +33,11 @@ public class OfficesServiceImpl implements OfficesService {
     public Offices findOne(String officeCode) {
          return officesRepository.findOne(officeCode);
     }
+    
+    @Override
+    public Offices saveOffice(Offices newOffice) {
+        return officesRepository.save(newOffice);
+        
+    }
 
 }

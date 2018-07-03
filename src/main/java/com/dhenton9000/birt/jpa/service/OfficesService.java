@@ -17,4 +17,5 @@ public interface OfficesService {
     
     public List<Offices> getAllOffices();
     public Offices findOne(String officeCode);
+    public Offices saveOffice(Offices newOffice);
 }

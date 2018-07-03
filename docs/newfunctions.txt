@@ -1,0 +1,9 @@
+"officeCode": "3",
+"phone": "+1 212 555 3000",
+"addressLine1": "523 East 53rd Street",
+"addressLine2": "apt. 5A",
+"stateName": "NY",
+"city": "bonzo Falls",
+"country": "USA",
+"postalCode": "10022",
+"territory": "NA"
