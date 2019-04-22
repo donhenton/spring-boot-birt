@@ -5,6 +5,7 @@
  */
 package com.dhenton9000.birt.jpa.service.impl;
 
+import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
 import com.dhenton9000.birt.jpa.domain.BasicCustomer;
 import com.dhenton9000.birt.jpa.domain.Customers;
 import com.dhenton9000.birt.jpa.domain.Orders;
@@ -59,11 +60,13 @@ public class CustomersServiceImpl implements CustomersService {
 
     @Override
     public Customers findCustomer(Integer customerId) {
-        return getCustomersRepository().findOne(customerId);
+        return getCustomersRepository().findById(customerId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested customerId [" + customerId
+                + "] does not exist."));
     }
 
     //example of a DTO
-    
     @Override
     public List<BasicCustomer> getBasicCustomerList() {
 

@@ -45,7 +45,7 @@ public class ConfigTests {
         assertNotNull(env);
         assertNotNull(databaseURL);
         assertEquals(dialect,"org.hibernate.dialect.PostgreSQLDialect"); // set in application.properties
-        assertEquals(databaseURL,"postgres://test:test@localhost:5433/jdatabase");  //set in surefire plugin
+        assertEquals(databaseURL,"postgres://test:test@localhost:5432/jdatabase");  //set in surefire plugin
     }
     
     

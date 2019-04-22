@@ -45,7 +45,13 @@ public class GroupsServiceImpl implements GroupsService {
 
     @Override
     public Groups findOne(Integer id) {
-        return this.check404(groupsRepository.findOne(id));
+
+        return groupsRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested group [" + id
+                + "] does not exist."));
+
+        //  return this.check404(groupsRepository.findOne(id));
     }
 
     @Override
@@ -57,20 +63,25 @@ public class GroupsServiceImpl implements GroupsService {
     @Override
     public List<Applications> findApplicationsForGroup(Integer id) {
 
-        Groups g = groupsRepository.findOne(id);
-        if (g == null) {
-            throw new ResourceNotFoundException("could not find group " + id);
-        }
+//        Groups g = groupsRepository.findOne(id);
+//        if (g == null) {
+//            throw new ResourceNotFoundException("could not find group " + id);
+//        }
+        Groups g = groupsRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested group [" + id
+                + "] does not exist."));
+
         return new ArrayList<Applications>(g.getApplicationsSet());
     }
 
     @Override
     public List<Users> findUsersForGroup(Integer id) {
 
-        Groups g = groupsRepository.findOne(id);
-        if (g == null) {
-            throw new ResourceNotFoundException("could not find group " + id);
-        }
+        Groups g = groupsRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested group [" + id
+                + "] does not exist."));
         return new ArrayList<Users>(g.getUsersSet());
     }
 
@@ -92,12 +103,11 @@ public class GroupsServiceImpl implements GroupsService {
         String innerQuery = " SELECT apps.id from Groups g "
                 + " join g.applicationsSet apps "
                 + " where g.id = :id ";
- 
 
         String qString = "select applications "
                 + " from Applications applications "
                 + " where applications.id NOT IN ( "
-                + innerQuery 
+                + innerQuery
                 + " )";
 
         Query q = this.entityManager.createQuery(qString);
@@ -105,19 +115,18 @@ public class GroupsServiceImpl implements GroupsService {
         return q.getResultList();
 
     }
-    
+
     @Override
     public List<Users> findUsersNotInGroup(Integer groupId) {
 
         String innerQuery = " SELECT users.userid from Groups g "
                 + " join g.usersSet users "
                 + " where g.id = :id ";
- 
 
         String qString = "select users "
                 + " from Users users "
                 + " where users.userid NOT IN ( "
-                + innerQuery 
+                + innerQuery
                 + " )";
 
         Query q = this.entityManager.createQuery(qString);
@@ -135,7 +144,7 @@ public class GroupsServiceImpl implements GroupsService {
     @Override
     @Transactional
     public void delete(Groups g) {
-        
+
         groupsRepository.delete(g);
     }
 
@@ -143,15 +152,15 @@ public class GroupsServiceImpl implements GroupsService {
     @Transactional
     public Users addUserToGroup(Integer userId, Integer groupId) {
 
-        Groups g = this.findOne(groupId);
-        if (g == null) {
-            throw new ResourceNotFoundException("cannot find group " + groupId);
-        }
+        Groups g = groupsRepository.findById(groupId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested group [" + groupId
+                + "] does not exist."));
 
-        Users u = usersRepository.findOne(userId);
-        if (u == null) {
-            throw new ResourceNotFoundException("cannot find user " + userId);
-        }
+        Users u = usersRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested user [" + userId
+                + "] does not exist."));
 
         if (g.getUsersSet().contains(u)) {
             throw new ResourceAlreadyExistsException("user already in group");
@@ -162,7 +171,6 @@ public class GroupsServiceImpl implements GroupsService {
 
         g.setUsersSet(users);
         return u;
-    
 
     }
 
@@ -175,10 +183,10 @@ public class GroupsServiceImpl implements GroupsService {
             throw new ResourceNotFoundException("cannot find group " + groupId);
         }
 
-        Users u = usersRepository.findOne(userId);
-        if (u == null) {
-            throw new ResourceNotFoundException("cannot find user " + userId);
-        }
+        Users u = usersRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested user [" + userId
+                + "] does not exist."));
 
         if (!g.getUsersSet().contains(u)) {
             throw new ResourceNotFoundException(String.format("user %d should be in group %d but isn't", userId, groupId));
@@ -192,7 +200,6 @@ public class GroupsServiceImpl implements GroupsService {
         users.remove(u);
         g.setUsersSet(users);
         return u;
-       
 
     }
 
@@ -204,7 +211,11 @@ public class GroupsServiceImpl implements GroupsService {
             throw new ResourceNotFoundException("cannot find group " + groupId);
         }
 
-        Applications a = applicationsRepository.findOne(appId);
+        // Applications a = applicationsRepository.findOne(appId);
+        Applications a = applicationsRepository.findById(appId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested application [" + appId
+                + "] does not exist."));
         if (a == null) {
             throw new ResourceNotFoundException("cannot find app " + appId);
         }
@@ -228,10 +239,10 @@ public class GroupsServiceImpl implements GroupsService {
             throw new ResourceNotFoundException("cannot find group " + groupId);
         }
 
-        Applications a = applicationsRepository.findOne(appId);
-        if (a == null) {
-            throw new ResourceNotFoundException("cannot find app " + appId);
-        }
+        Applications a = applicationsRepository.findById(appId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested application [" + appId
+                + "] does not exist."));
 
         if (g.getApplicationsSet().contains(a)) {
             throw new ResourceAlreadyExistsException("app already in group");

@@ -6,6 +6,7 @@
 package com.dhenton9000.birt.jpa.service.impl;
 
  
+import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
 import com.dhenton9000.birt.jpa.domain.Employees;
 import com.dhenton9000.birt.jpa.domain.Orders;
 import com.dhenton9000.birt.jpa.domain.SalesReport;
@@ -93,7 +94,10 @@ public class EmployeesServiceImpl     implements EmployeesService {
         {
             throw new RuntimeException("negative employees not allowed");
         }
-        return employeesRepository.findOne(employeeId);
+        return employeesRepository.findById(employeeId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested employeeId [" + employeeId
+                + "] does not exist."));
     }
   
     
