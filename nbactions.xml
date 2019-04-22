@@ -9,7 +9,7 @@
             <goal>spring-boot:run</goal>
         </goals>
         <properties>
-            <run.mainClass>com.dhenton9000.birt.BirtApplication</run.mainClass>
+            <spring-boot.run.mainClass>com.dhenton9000.birt.BirtApplication</spring-boot.run.mainClass>
         </properties>
     </action>
     <action>
@@ -21,8 +21,8 @@
             <goal>spring-boot:run</goal>
         </goals>
         <properties>
-            <run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address}</run.jvmArguments>
-            <run.mainClass>com.dhenton9000.birt.BirtApplication</run.mainClass>
+            <spring-boot.run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address}</spring-boot.run.jvmArguments>
+            <spring-boot.run.mainClass>com.dhenton9000.birt.BirtApplication</spring-boot.run.mainClass>
             <jpda.listen>true</jpda.listen>
         </properties>
     </action>

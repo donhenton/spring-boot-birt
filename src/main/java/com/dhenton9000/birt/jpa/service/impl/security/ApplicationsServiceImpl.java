@@ -33,7 +33,11 @@ public class ApplicationsServiceImpl implements ApplicationsService {
 
     @Override
     public Applications findOne(Integer id) {
-        return this.checkFor404(applicationsRepository.findOne(id));
+       // return this.checkFor404(applicationsRepository.findOne(id));
+       return applicationsRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested application [" + id
+                + "] does not exist."));
     }
 
     @Override

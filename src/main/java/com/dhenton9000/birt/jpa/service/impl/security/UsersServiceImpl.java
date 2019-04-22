@@ -5,6 +5,7 @@
  */
 package com.dhenton9000.birt.jpa.service.impl.security;
 
+import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
 import com.dhenton9000.birt.jpa.domain.security.Groups;
 import com.dhenton9000.birt.jpa.domain.security.Users;
@@ -34,7 +35,11 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Users findOne(Integer id) {
-        return usersRepository.findOne(id);
+        //return usersRepository.findOne(id);
+        return usersRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested user [" + id
+                + "] does not exist."));
     }
 
     @Override

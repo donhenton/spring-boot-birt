@@ -105,8 +105,15 @@ public class GroupServiceTests {
         groupsService.delete(newGroup);
         entityManager.flush();
         entityManager.clear();
+        boolean caughtResource = false;
+        try {
         newGroup = groupsService.findOne(newId);
-        assertNull(newGroup);
+        }
+        catch (ResourceNotFoundException re) {
+             caughtResource  = true;
+        }
+        assertNotNull(newGroup);
+        assertTrue(caughtResource);
         
     }
     

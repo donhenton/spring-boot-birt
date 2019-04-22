@@ -5,6 +5,7 @@
  */
 package com.dhenton9000.birt.jpa.service.impl;
 
+import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
 import com.dhenton9000.birt.jpa.domain.Offices;
 import com.dhenton9000.birt.jpa.repositories.OfficesRepository;
 import com.dhenton9000.birt.jpa.service.OfficesService;
@@ -31,7 +32,10 @@ public class OfficesServiceImpl implements OfficesService {
 
     @Override
     public Offices findOne(String officeCode) {
-         return officesRepository.findOne(officeCode);
+         return officesRepository.findById(officeCode)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                "The requested officeCode [" + officeCode
+                + "] does not exist."));
     }
     
     @Override

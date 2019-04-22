@@ -2,14 +2,15 @@ package com.dhenton9000.birt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.web.servlet.ErrorPage;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServer;
+import org.springframework.boot.web.server.ErrorPage;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.CorsRegistration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.ApiInfoBuilder;
 import static springfox.documentation.builders.PathSelectors.regex;
 import springfox.documentation.service.ApiInfo;
@@ -21,16 +22,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 public class BirtApplication {
-
+   
     @Bean
-    public EmbeddedServletContainerCustomizer containerCustomizer() {
-        return (container -> {
-
-            ErrorPage custom404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
-            container.addErrorPages(custom404Page);
-
-        });
+    public ConfigurableServletWebServerFactory webServerFactory() {
+        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+         ErrorPage custom404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
+        factory.addErrorPages(custom404Page);
+        return factory;
     }
+    
     
     /*
     
@@ -39,7 +39,7 @@ public class BirtApplication {
      */
     @Bean
     public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
+        return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 //  registry.addMapping("/birt/**");

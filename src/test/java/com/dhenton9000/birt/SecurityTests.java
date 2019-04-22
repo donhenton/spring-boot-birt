@@ -6,6 +6,7 @@
 package com.dhenton9000.birt;
 
 import com.dhenton9000.birt.configs.DatabaseConfig;
+import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
 import com.dhenton9000.birt.jpa.domain.security.Groups;
 import com.dhenton9000.birt.jpa.domain.security.Users;
@@ -63,8 +64,12 @@ public class SecurityTests {
         Users u = usersService.findOne(5);
         assertNotNull(u);
 
-        u = usersService.findOne(-11);
-        assertNull(u);
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void checkUsersFail() {
+        Users u = usersService.findOne(-11);
+
     }
 
     @Test
@@ -94,7 +99,6 @@ public class SecurityTests {
         entityManager.clear();
         apps = usersService.findAuthorizedApplications(u.getUserid());
         assertTrue(apps.contains(app));
-        
 
     }
 
