@@ -33,7 +33,7 @@ For this app you must use the Heroku fat jar deploy.
 heroku deploy:jar target/spring-boot-birt-0.0.1-SNAPSHOT.jar --app donhenton-spring-boot
 ```
 
-Or you can used the maven deploy:
+Or you can use the maven deploy:
 * login onto heroku via the command line
 * answer prompt on browser (requires upgrade to CLI > 22)
 * mvn clean heroku:deploy
