@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.CorsRegistration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-//import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.ApiInfoBuilder;
 import static springfox.documentation.builders.PathSelectors.regex;
 import springfox.documentation.service.ApiInfo;
@@ -23,17 +22,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 public class BirtApplication {
-
-//    @Bean
-//    public  String containerCustomizer() {
-//        return (container -> {
-//
-//            ErrorPage custom404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
-//            container.addErrorPages(custom404Page);
-//
-//        });
-//    }
-    
+   
     @Bean
     public ConfigurableServletWebServerFactory webServerFactory() {
         TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
