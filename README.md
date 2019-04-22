@@ -33,6 +33,12 @@ For this app you must use the Heroku fat jar deploy.
 heroku deploy:jar target/spring-boot-birt-0.0.1-SNAPSHOT.jar --app donhenton-spring-boot
 ```
 
+Or you can used the maven deploy:
+* login onto heroku via the command line
+* answer prompt on browser (requires upgrade to CLI > 22)
+* mvn clean heroku:deploy
+
+
 see https://devcenter.heroku.com/articles/deploying-executable-jar-files
 
 ## Database loading
@@ -44,9 +50,6 @@ can be found at https://github.com/donhenton/dbscripts/blob/master/loading_to_he
 
 see https://github.com/donhenton/webjar-app
 
-## React-compile branch
-
-This branch contains code for using this Spring Boot for react js development
 
 ## Application Location (Locally)
 
