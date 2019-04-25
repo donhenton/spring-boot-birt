@@ -1,6 +1,13 @@
 
 type Query {
     bookById(id: ID): Book
+    officesById(id: ID): Offices
+}
+
+type Offices {
+     officeCode: String!
+     city: String!
+
 }
 
 type Book {
