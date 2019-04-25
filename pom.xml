@@ -80,6 +80,21 @@
             <version>2.2.1</version>
         </dependency>
         
+        <!-- graphql -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java</artifactId>
+             <version>11.0</version>
+            
+        </dependency>
+            
+         <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+             <version>1.0</version>
+            
+        </dependency>
+        
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery-ui</artifactId>

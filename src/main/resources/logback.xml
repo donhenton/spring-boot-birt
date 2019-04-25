@@ -15,6 +15,9 @@
     <logger name="org.apache">
         <level value="ERROR"/>
     </logger>
+     <logger name="graphql">
+        <level value="ERROR"/>
+    </logger>
     <logger name="org.springframework">
         <level value="ERROR"/>
     </logger>
