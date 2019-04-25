@@ -34,6 +34,7 @@ public class GraphQLDataFetchers {
 
     public DataFetcher getBookByIdDataFetcher() {
         return dataFetchingEnvironment -> {
+           
             String bookId = dataFetchingEnvironment.getArgument("id");
             return books
                     .stream()
@@ -45,6 +46,7 @@ public class GraphQLDataFetchers {
 
     public DataFetcher<Offices> getOfficesByIdDataFetcher() {
         return dataFetchingEnvironment -> {
+ 
             String officeId = dataFetchingEnvironment.getArgument("id");
             Offices offices = this.officesService.findOne(officeId);
             return offices;
