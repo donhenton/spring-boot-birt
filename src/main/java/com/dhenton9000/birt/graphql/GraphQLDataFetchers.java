@@ -77,6 +77,35 @@ public class GraphQLDataFetchers {
             LOG.info(report.toString());
             return report;
         };
+        
+       
     }
+    
+     public DataFetcher<List<SalesReport>> getAnnualReportDataFetcher() {
+        return dataFetchingEnvironment -> {
+ 
+            List<SalesReport> reports = this.employeesService.getSalesData();
+           //// LOG.info(report.toString());
+            return reports;
+        };
+        
+       
+    }
+     
+     public DataFetcher<Float> getAnnualTotalSalesDataFetcher() {
+         
+         return dataFetchingEnvironment -> {
+            
+            SalesReport report =  dataFetchingEnvironment.getSource();
+             LOG.info(report.toString());
+             //String firstName, String lastName, Double totalSales, Integer employeeNumber
+           //TODO use report.getEmployeeNumber() to get the total sales via
+           // a query in the services
+            return     100.01f;
+            
+            
+         };
+         
+     }
     
 }
