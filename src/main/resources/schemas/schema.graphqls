@@ -2,6 +2,7 @@
 type Query {
     bookById(id: ID): Book
     officesById(id: ID): Offices
+    getSalesReport(employeeId: ID): SalesReport
 }
 
 type Offices {
@@ -21,4 +22,25 @@ type Author {
     id: ID
     firstName: String
     lastName: String
+}
+
+type Employee {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    email: String
+    jobTitle: String
+    totalSales: Float
+ 
+    
+
+}
+
+type SalesReport {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    totalSales: Float
+    
+
 }

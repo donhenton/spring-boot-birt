@@ -41,7 +41,7 @@ public class GraphQLProvider {
         String sdl = new BufferedReader(new InputStreamReader(inr))
                 .lines().collect(Collectors.joining("\n"));
 
-       // LOG.info("content " + sdl);
+        // LOG.info("content " + sdl);
         GraphQLSchema graphQLSchema = buildSchema(sdl);
         this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
     }
@@ -57,11 +57,11 @@ public class GraphQLProvider {
         return RuntimeWiring.newRuntimeWiring()
                 .type(newTypeWiring("Query").dataFetcher("bookById", graphQLDataFetchers.getBookByIdDataFetcher()))
                 .type(newTypeWiring("Query").dataFetcher("officesById", graphQLDataFetchers.getOfficesByIdDataFetcher()))
-               // .type(newTypeWiring("Query")
-                   //     .dataFetcher("bookById", graphQLDataFetchers.getBookByIdDataFetcher() )
-                 // .type(newTypeWiring("Book")
+                .type(newTypeWiring("Query").dataFetcher("getSalesReport", graphQLDataFetchers.getEmployeeSaleReportDataFetcher()))
+               
+                // .type(newTypeWiring("Book")
                 //           .dataFetcher("author", graphQLDataFetchers.getAuthorDataFetcher()))
-                 .build();
+                .build();
     }
 
 }
