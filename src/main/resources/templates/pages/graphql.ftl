@@ -1,6 +1,9 @@
 <#include "../common/header.ftl">
  
+<script>
+window.graphqlUrl = "${graphqlUrl}";
 
+</script>
 
 
 

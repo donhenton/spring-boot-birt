@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,12 +97,9 @@ public class GraphQLDataFetchers {
          
          return dataFetchingEnvironment -> {
             
-            Object report =  dataFetchingEnvironment.getSource();
-             LOG.info(report.getClass().getName());
-             //String firstName, String lastName, Double totalSales, Integer employeeNumber
-           //TODO use report.getEmployeeNumber() to get the total sales via
-           // a query in the services
-            return     200.0f;
+            SalesReport report = (SalesReport) dataFetchingEnvironment.getSource();
+            int randomNum = ThreadLocalRandom.current().nextInt(3000, 9000 + 1);
+            return     new Float(randomNum);
             
             
          };

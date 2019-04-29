@@ -3,32 +3,35 @@ import ReactDOM from 'react-dom';
 import MainForm from './MainForm';
 import ApolloClient from 'apollo-boost';
 import { gql } from "apollo-boost";
- 
+
+
+ //grapqlUrl
 const client = new ApolloClient({
-  uri: "http://localhost:9000/graphql"
+  uri: window.graphqlUrl
 })
+
 
 
 client.query({
   query: gql`
 {
-    getSalesReport(employeeId: 1702) {
+    getAnnualReport {
     lastName
     firstName
     employeeNumber
-    totalSales
+    annualEarnings
   }
 }
-
-
-`
-  
-  
-  
+` 
 })
-      .then(res => console.log(res))
+      .then(res =>  { 
+        
+       
+        ReactDOM.render(<MainForm annualReportData={res.data.getAnnualReport} />, document.querySelector('#graphqlDemo'));
 
-ReactDOM.render(<MainForm />, document.querySelector('#graphqlDemo'));
+})
+
+
 
 
 

@@ -8,6 +8,8 @@ var del = require('del');
 var gutil = require('gulp-util');
 var targetLocation = './target/classes/static/js/react';
 var REACT_FILES = [ './src/front-end/react/**/*.js'];
+var streamify = require('gulp-streamify');
+var uglify = require('gulp-uglify');
 
 var pageURL = 'http://localhost:8000';
 
@@ -66,7 +68,11 @@ gulp.task('react-build', function () {
     prodBundle()
             .pipe(source('bundle.js'))
             .pipe(streamify(uglify()))
-            .pipe(gulp.dest(targetLocation  ));
+            .pipe(gulp.dest(targetLocation  ))
+            .on('finish', function ( ) {
+                gutil.log("finished release build");
+                 
+            });;
 });
 
 
@@ -95,3 +101,4 @@ gulp.task('frontend-watch', function () {
 
 gulp.task('init-dev',['react-build-dev' ]);
 gulp.task('dev',['frontend-watch' ]);
+gulp.task('release',['react-build'])

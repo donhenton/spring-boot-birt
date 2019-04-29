@@ -5,6 +5,7 @@
  */
 package com.dhenton9000.birt.controllers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+    
+     @Value("${graphql.endpoint}")
+    private String graphqlUrl;
     
     
      @RequestMapping("/")
@@ -33,6 +37,7 @@ public class HomeController {
      @RequestMapping("/demoForGraphQL")
     public String graphql(Model model) {
         model.addAttribute("appTitle", "GraphQL Demos");
+        model.addAttribute("graphqlUrl",graphqlUrl);
         return "pages/graphql";
     }
     
