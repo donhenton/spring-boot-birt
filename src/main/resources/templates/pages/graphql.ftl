@@ -1,5 +1,6 @@
 <#include "../common/header.ftl">
  
+<!-- the url for graphql is defined in dev.properties via HomeController -->
 <script>
 window.graphqlUrl = "${graphqlUrl}";
 

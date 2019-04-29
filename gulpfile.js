@@ -101,4 +101,5 @@ gulp.task('frontend-watch', function () {
 
 gulp.task('init-dev',['react-build-dev' ]);
 gulp.task('dev',['frontend-watch' ]);
-gulp.task('release',['react-build'])
+gulp.task('release',['react-build']);
+gulp.task('default',['react-build']);
