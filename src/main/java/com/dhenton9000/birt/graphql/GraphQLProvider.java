@@ -62,6 +62,7 @@ public class GraphQLProvider {
                 .type(newTypeWiring("Query").dataFetcher("getSecurityGroups", graphQLDataFetchers.getSecurityGroupsDataFetcher()))
                 .type(newTypeWiring("AnnualReport")
                           .dataFetcher("annualEarnings", graphQLDataFetchers.getAnnualTotalSalesDataFetcher()))
+                //something wrong with the property case so duplicating
                 .type(newTypeWiring("SecurityUsers")
                           .dataFetcher("userName", graphQLDataFetchers.userNameTranslator()))
                 .build();

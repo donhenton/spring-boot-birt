@@ -109,7 +109,6 @@ public class GraphQLDataFetchers {
             List<GroupDTO> groupDTOs = groupsService.findAllGroupDTOs();
             groupDTOs.forEach(g -> {
                g.setWholeApplicationList(apps); 
-                
                g.setWholeUserList(users);
                 
             });
