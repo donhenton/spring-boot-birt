@@ -85,7 +85,7 @@ public class GraphQLDataFetchers {
         return dataFetchingEnvironment -> {
  
             List<SalesReport> reports = this.employeesService.getSalesData();
-           //// LOG.info(report.toString());
+        //  LOG.info(reports.toString());
             return reports;
         };
         
@@ -96,12 +96,12 @@ public class GraphQLDataFetchers {
          
          return dataFetchingEnvironment -> {
             
-            SalesReport report =  dataFetchingEnvironment.getSource();
-             LOG.info(report.toString());
+            Object report =  dataFetchingEnvironment.getSource();
+             LOG.info(report.getClass().getName());
              //String firstName, String lastName, Double totalSales, Integer employeeNumber
            //TODO use report.getEmployeeNumber() to get the total sales via
            // a query in the services
-            return     100.01f;
+            return     200.0f;
             
             
          };
