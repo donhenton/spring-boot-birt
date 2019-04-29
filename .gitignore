@@ -26,3 +26,4 @@ nbdist/
 .DS_Store
 file.log
 /logfile
+/node_modules/

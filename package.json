@@ -1,0 +1,49 @@
+{
+  "name": "spring-boot-birt",
+  "version": "1.0.0",
+  "description": "spring boot application with graphql and react",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "del": "4.1.1",
+    "del-cli": "1.1.0",
+    "gulp": "^3.8.11",
+    "gulp-livereload": "4.0.1",
+    "gulp-react": "4.0.0",
+    "gulp-sass": "4.0.2",
+    "gulp-streamify": "1.0.2",
+    "gulp-uglify": "3.0.2",
+    "vinyl-source-stream": "^1.1.0",
+    "gulp-watch": "5.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donhenton/spring-boot-birt.git"
+  },
+  "keywords": [
+    "react",
+    "graphql",
+    "spring-boot"
+  ],
+  "author": "dhenton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donhenton/spring-boot-birt/issues"
+  },
+  "homepage": "https://github.com/donhenton/spring-boot-birt#readme"
+}

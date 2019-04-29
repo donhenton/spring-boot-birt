@@ -24,6 +24,7 @@
                     <ul>
                         <li><a target="_blank" href="/swagger-ui.html">Swagger Docs</a></li> 
                         <li><a target="_blank" href="/actuator/mappings">Actuator Mappings</a></li> 
+                        <li><a  href="/demoForGraphQL">GraphQL Demo</a></li> 
                         <li><a  href="/demos">Demos</a></li> 
                         <li><a  href="/data">Schemas</a></li> 
                         <li><a href="/">Home</a></li>

@@ -29,6 +29,14 @@ public class HomeController {
         model.addAttribute("appTitle", "Application Demos");
         return "pages/demos";
     }
+    
+     @RequestMapping("/demoForGraphQL")
+    public String graphql(Model model) {
+        model.addAttribute("appTitle", "GraphQL Demos");
+        return "pages/graphql";
+    }
+    
+    
      @RequestMapping("/data")
     public String data(Model model) {
         model.addAttribute("appTitle", "Data Models");

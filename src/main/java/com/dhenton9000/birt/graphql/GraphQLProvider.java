@@ -59,9 +59,7 @@ public class GraphQLProvider {
                 .type(newTypeWiring("Query").dataFetcher("officesById", graphQLDataFetchers.getOfficesByIdDataFetcher()))
                 .type(newTypeWiring("Query").dataFetcher("getSalesReport", graphQLDataFetchers.getEmployeeSaleReportDataFetcher()))
                 .type(newTypeWiring("Query").dataFetcher("getAnnualReport", graphQLDataFetchers.getAnnualReportDataFetcher()))
-                // .type(newTypeWiring("Book")
-                //           .dataFetcher("author", graphQLDataFetchers.getAuthorDataFetcher()))
-                  .type(newTypeWiring("AnnualReport")
+                .type(newTypeWiring("AnnualReport")
                           .dataFetcher("annualEarnings", graphQLDataFetchers.getAnnualTotalSalesDataFetcher()))
                 .build();
     }
