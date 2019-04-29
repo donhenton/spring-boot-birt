@@ -4,6 +4,7 @@ type Query {
     officesById(id: ID): Offices
     getSalesReport(employeeId: ID): SalesReport
     getAnnualReport: [AnnualReport]
+    getSecurityGroups: [SecurityGroup]
 }
 
 type Offices {
@@ -54,3 +55,28 @@ type AnnualReport {
     
 
 }
+
+type SecurityGroup {
+    id: ID!
+    groupName: String!
+    applications: [SecurityApplications]
+    applicationsNotInGroup: [SecurityApplications]
+    users: [SecurityUsers]
+    usersNotInGroup: [SecurityUsers]
+    
+}
+
+type SecurityApplications {
+     id: ID!
+     applicationName:String!
+
+}
+
+type SecurityUsers {
+
+     userId: ID!
+     login: String!
+     userName: String!
+  
+}
+

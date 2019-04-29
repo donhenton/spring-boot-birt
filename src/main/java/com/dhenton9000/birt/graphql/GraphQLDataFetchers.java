@@ -2,8 +2,11 @@ package com.dhenton9000.birt.graphql;
 
 import com.dhenton9000.birt.jpa.domain.Offices;
 import com.dhenton9000.birt.jpa.domain.SalesReport;
+import com.dhenton9000.birt.jpa.domain.security.Applications;
+import com.dhenton9000.birt.jpa.domain.security.dto.GroupDTO;
 import com.dhenton9000.birt.jpa.service.EmployeesService;
 import com.dhenton9000.birt.jpa.service.OfficesService;
+import com.dhenton9000.birt.jpa.service.security.GroupsService;
 import com.google.common.collect.ImmutableMap;
 import graphql.schema.DataFetcher;
 import java.util.ArrayList;
@@ -15,6 +18,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.dhenton9000.birt.jpa.domain.security.Users;
+import com.dhenton9000.birt.jpa.service.security.ApplicationsService;
+import com.dhenton9000.birt.jpa.service.security.UsersService;
 
 @Component
 public class GraphQLDataFetchers {
@@ -22,9 +28,15 @@ public class GraphQLDataFetchers {
     private static final Logger LOG = LoggerFactory.getLogger(GraphQLDataFetchers.class);
 
     @Autowired
+    private ApplicationsService applicationsService;
+     @Autowired
+    private UsersService usersService;
+    @Autowired
     private OfficesService officesService;
     @Autowired
     private EmployeesService employeesService;
+    @Autowired
+    private GroupsService groupsService;
 
     private static List<Map<String, String>> books = Arrays.asList(
             ImmutableMap.of("id", "book-1",
@@ -82,6 +94,29 @@ public class GraphQLDataFetchers {
        
     }
     
+    public DataFetcher<String> userNameTranslator() {
+        return dataFetchingEnvironment -> {
+          Users u = (Users) dataFetchingEnvironment.getSource();
+           return u.getUsername();
+        };
+    }
+    
+    
+    public DataFetcher<List<GroupDTO>> getSecurityGroupsDataFetcher() {
+        return dataFetchingEnvironment -> {
+            List<Applications> apps = applicationsService.findAll();
+            List<Users> users = usersService.findAll();
+            List<GroupDTO> groupDTOs = groupsService.findAllGroupDTOs();
+            groupDTOs.forEach(g -> {
+               g.setWholeApplicationList(apps); 
+                
+               g.setWholeUserList(users);
+                
+            });
+            return groupDTOs;
+        };
+    }
+    
      public DataFetcher<List<SalesReport>> getAnnualReportDataFetcher() {
         return dataFetchingEnvironment -> {
  
@@ -100,8 +135,7 @@ public class GraphQLDataFetchers {
             SalesReport report = (SalesReport) dataFetchingEnvironment.getSource();
             int randomNum = ThreadLocalRandom.current().nextInt(3000, 9000 + 1);
             return     new Float(randomNum);
-            
-            
+ 
          };
          
      }

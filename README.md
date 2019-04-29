@@ -25,6 +25,9 @@ On heroku this command will be in the Procfile and the port number will be $PORT
 In dev, DATABASE_URL in netbeans is set in the application-dev properites file,
 and on heroku, its set as a system property by Heroku
 
+With the advent of npm gulp build. runit.sh will run the dev and allow for 
+reloading of the app via live reload
+
 ## Deploying to Heroku
 
 For this app you must use the Heroku fat jar deploy. 
