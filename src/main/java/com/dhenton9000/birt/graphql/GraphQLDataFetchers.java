@@ -137,28 +137,9 @@ public class GraphQLDataFetchers {
 
     DataFetcher<Offices> createOfficeDataMutation() {
         return dataFetchingEnvironment -> {
-            LOG.info("got here");
-            Object office = null;
 
             Map input = (Map) dataFetchingEnvironment.getArgument("input");
-//             try {
-//                Object t =   dataFetchingEnvironment.getArgument("input");
-//                LOG.info("t is "+t.getClass().getName());
-//                
-//             } catch(Exception err) {
-//                 LOG.error(err.getClass().getName()+ " "+err.getMessage());
-//            }
-            // LOG.info(input.toString());
-            Offices officePayload = new Offices();
-            officePayload.setAddressLine1((String) input.get("addressLine1"));
-            officePayload.setAddressLine2((String) input.get("addressLine2"));
-            officePayload.setOfficeCode((String) input.get("officeCode"));
-            officePayload.setCity((String) input.get("city"));
-            officePayload.setPhone((String) input.get("phone"));
-            officePayload.setPostalCode((String) input.get("postalCode"));
-            officePayload.setTerritory((String) input.get("territory"));
-            officePayload.setCountry((String) input.get("country"));
-            Offices result = this.officesService.saveOffice(officePayload);
+            Offices result = this.officesService.createOffice(input);
             return result;
 
         };
