@@ -7,12 +7,10 @@ package com.dhenton9000.birt.jpa.service.impl;
 
 import com.dhenton9000.birt.controllers.support.ResourceAlreadyExistsException;
 import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
-import com.dhenton9000.birt.jpa.domain.OfficeExplorer;
 import com.dhenton9000.birt.jpa.domain.Offices;
 import com.dhenton9000.birt.jpa.repositories.OfficesRepository;
 import com.dhenton9000.birt.jpa.service.OfficesService;
 import com.dhenton9000.jpa.util.EntityUtils;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -33,50 +31,49 @@ public class OfficesServiceImpl implements OfficesService {
 
     private static final Logger LOG = LoggerFactory.getLogger(OfficesServiceImpl.class);
 
-    public List<OfficeExplorer> createOfficeExplorer() {
+    public List<Offices> createOfficeExplorer() {
         List<Offices> offices = this.getAllOffices();
-        List<OfficeExplorer> explorerList = new ArrayList<OfficeExplorer>();
+       
         final AtomicReference totalFloat = new AtomicReference();
         totalFloat.getAndSet(0.0f);
         offices.forEach(office -> {
 
-            OfficeExplorer oE = new OfficeExplorer();
-            oE.setAddressLine1(office.getAddressLine1());
-            oE.setAddressLine2(office.getAddressLine2());
-            oE.setCity(office.getCity());
-            oE.setCountry(office.getCountry());
-            oE.setOfficeCode(office.getOfficeCode());
-            oE.setPhone(office.getPhone());
-            oE.setPostalCode(office.getPostalCode());
-            oE.setTerritory(office.getTerritory());
-            explorerList.add(oE);
-            
+//            OfficeExplorer oE = new OfficeExplorer();
+//            oE.setAddressLine1(office.getAddressLine1());
+//            oE.setAddressLine2(office.getAddressLine2());
+//            oE.setCity(office.getCity());
+//            oE.setCountry(office.getCountry());
+//            oE.setOfficeCode(office.getOfficeCode());
+//            oE.setPhone(office.getPhone());
+//            oE.setPostalCode(office.getPostalCode());
+//            oE.setTerritory(office.getTerritory());
+           
 
             office.getEmployees().forEach(employee -> {
-                
+
                 employee.getCustomers().forEach(customer -> {
+
+                    totalFloat.getAndSet(0.0f);
                     customer.getOrders().forEach(order -> {
                         order.getOrderDetails().forEach(orders -> {
                             totalFloat.accumulateAndGet(
                                     orders.getPriceEach(),
                                     (current, given) -> {
                                         return (Float) current + (Float) given;
-                                    });                            
-
+                                    });
                         });
-                        Float z = (Float) totalFloat.get();
-                        oE.setSalesTotal(z);
-                        totalFloat.getAndSet(0.0f);
-
                     });
+
+                    Float z = (Float) totalFloat.get();
+                    customer.setSalesTotal(z);
 
                 });
             });
-            oE.setEmployees(office.getEmployees());
+            
 
         });
 
-        return explorerList;
+        return offices;
 
     }
 

@@ -77,3 +77,26 @@ mutation {
 
 ```
 
+## OfficeExplorers
+
+```
+query {
+    getOfficeExplorers {
+      officeCode
+      postalCode
+      phone
+      employees {
+        lastName
+        firstName
+        email
+        employeeNumber
+        customers {
+          customerName
+          customerNumber
+          salesTotal
+        }
+      }
+    }
+}
+
+```

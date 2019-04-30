@@ -35,7 +35,6 @@ type OfficeExplorer {
      country: String
      postalCode: String
      territory: String
-     salesTotal: Float
      employees: [ExtendedEmployee]
 
 }
@@ -60,6 +59,7 @@ type Customer {
     customerName:String
     city: String
     customerNumber:ID!
+    salesTotal: Float
 }
 
 type Book {
@@ -91,7 +91,6 @@ type ExtendedEmployee {
     firstName: String
     email: String
     jobTitle: String
-    totalSales: Float
     customers: [Customer]
 
 }

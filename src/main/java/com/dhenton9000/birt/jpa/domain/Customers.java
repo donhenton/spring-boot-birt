@@ -27,6 +27,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
@@ -53,7 +54,7 @@ public class Customers implements Serializable {
     private Float creditLimit;
     private Integer customerNumber;
     private Set<Orders> orders;
-
+    private float salesTotal = 0;
     
   
 
@@ -307,6 +308,14 @@ public class Customers implements Serializable {
         this.employee = employee;
     }
 
-    
+    public void setSalesTotal(Float z) {
+           this.salesTotal  = z;
+    }
+
+
+    @Transient
+    public Float getSalesTotal() {
+        return this.salesTotal;
+    }
 
 }
