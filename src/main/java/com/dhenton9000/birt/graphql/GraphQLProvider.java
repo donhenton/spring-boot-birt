@@ -60,6 +60,8 @@ public class GraphQLProvider {
                 .type(newTypeWiring("Query").dataFetcher("getSalesReport", graphQLDataFetchers.getEmployeeSaleReportDataFetcher()))
                 .type(newTypeWiring("Query").dataFetcher("getAnnualReport", graphQLDataFetchers.getAnnualReportDataFetcher()))
                 .type(newTypeWiring("Query").dataFetcher("getSecurityGroups", graphQLDataFetchers.getSecurityGroupsDataFetcher()))
+                .type(newTypeWiring("Query").dataFetcher("getOfficeExplorers", graphQLDataFetchers.getOfficeExplorersDataFetcher()))
+               
                 .type(newTypeWiring("Mutation").dataFetcher("createOffice", graphQLDataFetchers.createOfficeDataMutation()))
                 .type(newTypeWiring("AnnualReport")
                           .dataFetcher("annualEarnings", graphQLDataFetchers.getAnnualTotalSalesDataFetcher()))

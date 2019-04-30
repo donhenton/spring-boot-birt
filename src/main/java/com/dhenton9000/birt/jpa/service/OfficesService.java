@@ -6,6 +6,7 @@
 package com.dhenton9000.birt.jpa.service;
 
  
+import com.dhenton9000.birt.jpa.domain.OfficeExplorer;
 import com.dhenton9000.birt.jpa.domain.Offices;
 import java.util.List;
 import java.util.Map;
@@ -20,4 +21,5 @@ public interface OfficesService {
     public Offices findOne(String officeCode);
     public Offices saveOffice(Offices newOffice);
     public Offices createOffice(Map input);
+    public List<OfficeExplorer> createOfficeExplorer();
 }

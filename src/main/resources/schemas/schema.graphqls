@@ -5,6 +5,7 @@ type Query {
     getSalesReport(employeeId: ID): SalesReport
     getAnnualReport: [AnnualReport]
     getSecurityGroups: [SecurityGroup]
+    getOfficeExplorers: [OfficeExplorer]
 }
 
 type Mutation {
@@ -25,6 +26,20 @@ input OfficeInput {
     
 }
 
+type OfficeExplorer {
+     officeCode: String!
+     city: String!
+     phone: String
+     addressLine1: String
+     addressLine2: String
+     country: String
+     postalCode: String
+     territory: String
+     salesTotal: Float
+     employees: [ExtendedEmployee]
+
+}
+
 
 type Offices {
      officeCode: String!
@@ -35,8 +50,16 @@ type Offices {
      country: String
      postalCode: String
      territory: String
+    
 
 
+}
+
+type Customer {
+
+    customerName:String
+    city: String
+    customerNumber:ID!
 }
 
 type Book {
@@ -59,8 +82,17 @@ type Employee {
     email: String
     jobTitle: String
     totalSales: Float
- 
-    
+
+}
+
+type ExtendedEmployee {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    email: String
+    jobTitle: String
+    totalSales: Float
+    customers: [Customer]
 
 }
 

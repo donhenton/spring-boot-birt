@@ -1,5 +1,6 @@
 package com.dhenton9000.birt.graphql;
 
+import com.dhenton9000.birt.jpa.domain.OfficeExplorer;
 import com.dhenton9000.birt.jpa.domain.Offices;
 import com.dhenton9000.birt.jpa.domain.SalesReport;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
@@ -145,4 +146,11 @@ public class GraphQLDataFetchers {
         };
     }
 
+    DataFetcher<List<OfficeExplorer>> getOfficeExplorersDataFetcher() {
+        return dataFetchingEnvironment -> {
+            return this.officesService.createOfficeExplorer();
+
+        };
+
+    }
 }
