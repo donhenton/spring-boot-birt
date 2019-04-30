@@ -132,41 +132,7 @@
               <version>2.0.8</version>
             </plugin>
             
-          <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>exec-npm-install</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>install</argument>
-                            </arguments>
-                        </configuration>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-      
-                    <execution>
-                        <id>exec-gulp</id>
-                        <phase>prepare-package</phase>
-                      
-                        <configuration>
-                            <executable>gulp</executable>
-                            <arguments>
-                                <argument>--dir</argument>
-                                <argument>${project.artifactId}-${project.version}</argument>
-                            </arguments>
-                        </configuration>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+       
             
       
             <plugin>
@@ -188,4 +154,51 @@
             
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>react</id>
+            <build>
+                <plugins>
+           
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>exec-npm-install</id>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                    </arguments>
+                                </configuration>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+      
+                            <execution>
+                                <id>exec-gulp</id>
+                                <phase>prepare-package</phase>
+                      
+                                <configuration>
+                                    <executable>gulp</executable>
+                                    <arguments>
+                                        <argument>--dir</argument>
+                                        <argument>${project.artifactId}-${project.version}</argument>
+                                    </arguments>
+                                </configuration>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                     
+                </plugins>
+            </build>
+        </profile>
+        
+    </profiles>
 </project>

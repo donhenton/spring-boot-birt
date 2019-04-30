@@ -7,9 +7,35 @@ type Query {
     getSecurityGroups: [SecurityGroup]
 }
 
+type Mutation {
+    createOffice(input: OfficeInput): Offices
+
+
+}
+
+input OfficeInput {
+     officeCode: String!
+     city: String!
+     phone: String
+     addressLine1: String
+     addressLine2: String
+     country: String!
+     postalCode: String
+     territory: String
+    
+}
+
+
 type Offices {
      officeCode: String!
      city: String!
+     phone: String
+     addressLine1: String
+     addressLine2: String
+     country: String
+     postalCode: String
+     territory: String
+
 
 }
 

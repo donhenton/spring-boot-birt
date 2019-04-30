@@ -54,8 +54,15 @@ public class OfficesController {
     public Offices saveOffice(@RequestBody Offices newOffice) {
         String officeCode = newOffice.getOfficeCode();
         LOG.info("office Code "+newOffice.toString());
-        Offices o =  officesService.findOne(officeCode);
-        if(o != null)
+        boolean notFound = false;
+        Offices o = null;
+        try {
+            o =  officesService.findOne(officeCode);
+        } catch (ResourceNotFoundException e) {
+            notFound = true;
+        }
+        
+        if(!notFound)
         {
             throw new ResourceAlreadyExistsException("office already exists "+officeCode);
         }

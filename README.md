@@ -5,7 +5,18 @@ database. This application is deployed to heroku at http://donhenton-spring-boot
 
 ## Netbeans Specific
 
-If built from the plugin a specific run time associate will be built see the nbactions.xml file. Select all the checkboxes when using the wizard.
+If built from the plugin a specific run time associate will be built see the 
+nbactions.xml file. Select all the checkboxes when using the wizard.
+
+## Building the App
+
+This command builds the app and creates the react javascript app This is what
+would be used to create the jar for heroku deploying
+
+```
+mvn clean package -DskipTests -Preact 
+```
+
 
 ## Running Locally 
 

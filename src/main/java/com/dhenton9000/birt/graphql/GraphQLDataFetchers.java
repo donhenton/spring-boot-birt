@@ -24,12 +24,12 @@ import com.dhenton9000.birt.jpa.service.security.UsersService;
 
 @Component
 public class GraphQLDataFetchers {
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(GraphQLDataFetchers.class);
 
     @Autowired
     private ApplicationsService applicationsService;
-     @Autowired
+    @Autowired
     private UsersService usersService;
     @Autowired
     private OfficesService officesService;
@@ -55,7 +55,7 @@ public class GraphQLDataFetchers {
 
     public DataFetcher getBookByIdDataFetcher() {
         return dataFetchingEnvironment -> {
-           
+
             String bookId = dataFetchingEnvironment.getArgument("id");
             return books
                     .stream()
@@ -67,76 +67,101 @@ public class GraphQLDataFetchers {
 
     public DataFetcher<Offices> getOfficesByIdDataFetcher() {
         return dataFetchingEnvironment -> {
-            
+
             String officeId = dataFetchingEnvironment.getArgument("id");
             Offices offices = this.officesService.findOne(officeId);
             return offices;
         };
     }
-    
+
     public DataFetcher<SalesReport> getEmployeeSaleReportDataFetcher() {
         return dataFetchingEnvironment -> {
-           
-            Integer employeeId= null;
+
+            Integer employeeId = null;
             String eId = dataFetchingEnvironment.getArgument("employeeId");
             try {
-            employeeId = Integer.parseInt(eId);
+                employeeId = Integer.parseInt(eId);
+            } catch (Exception e) {
+                LOG.error("could not integer parse " + eId);
             }
-            catch (Exception e){
-                LOG.error("could not integer parse "+eId);
-            }
-             LOG.info("id is "+employeeId);
+            LOG.info("id is " + employeeId);
             SalesReport report = this.employeesService.getSalesData(employeeId);
             LOG.info(report.toString());
             return report;
         };
-        
-       
+
     }
-    
+
     public DataFetcher<String> userNameTranslator() {
         return dataFetchingEnvironment -> {
-          Users u = (Users) dataFetchingEnvironment.getSource();
-           return u.getUsername();
+            Users u = (Users) dataFetchingEnvironment.getSource();
+            return u.getUsername();
         };
     }
-    
-    
+
     public DataFetcher<List<GroupDTO>> getSecurityGroupsDataFetcher() {
         return dataFetchingEnvironment -> {
             List<Applications> apps = applicationsService.findAll();
             List<Users> users = usersService.findAll();
             List<GroupDTO> groupDTOs = groupsService.findAllGroupDTOs();
             groupDTOs.forEach(g -> {
-               g.setWholeApplicationList(apps); 
-               g.setWholeUserList(users);
-                
+                g.setWholeApplicationList(apps);
+                g.setWholeUserList(users);
+
             });
             return groupDTOs;
         };
     }
-    
-     public DataFetcher<List<SalesReport>> getAnnualReportDataFetcher() {
+
+    public DataFetcher<List<SalesReport>> getAnnualReportDataFetcher() {
         return dataFetchingEnvironment -> {
- 
+
             List<SalesReport> reports = this.employeesService.getSalesData();
-        //  LOG.info(reports.toString());
+            //  LOG.info(reports.toString());
             return reports;
         };
-        
-       
+
     }
-     
-     public DataFetcher<Float> getAnnualTotalSalesDataFetcher() {
-         
-         return dataFetchingEnvironment -> {
-            
+
+    public DataFetcher<Float> getAnnualTotalSalesDataFetcher() {
+
+        return dataFetchingEnvironment -> {
+
             SalesReport report = (SalesReport) dataFetchingEnvironment.getSource();
             int randomNum = ThreadLocalRandom.current().nextInt(3000, 9000 + 1);
-            return     new Float(randomNum);
- 
-         };
-         
-     }
-    
+            return new Float(randomNum);
+
+        };
+
+    }
+
+    DataFetcher<Offices> createOfficeDataMutation() {
+        return dataFetchingEnvironment -> {
+            LOG.info("got here");
+            Object office = null;
+
+            Map input = (Map) dataFetchingEnvironment.getArgument("input");
+//             try {
+//                Object t =   dataFetchingEnvironment.getArgument("input");
+//                LOG.info("t is "+t.getClass().getName());
+//                
+//             } catch(Exception err) {
+//                 LOG.error(err.getClass().getName()+ " "+err.getMessage());
+//            }
+            // LOG.info(input.toString());
+            Offices officePayload = new Offices();
+            officePayload.setAddressLine1((String) input.get("addressLine1"));
+            officePayload.setAddressLine2((String) input.get("addressLine2"));
+            officePayload.setOfficeCode((String) input.get("officeCode"));
+            officePayload.setCity((String) input.get("city"));
+            officePayload.setPhone((String) input.get("phone"));
+            officePayload.setPostalCode((String) input.get("postalCode"));
+            officePayload.setTerritory((String) input.get("territory"));
+            officePayload.setCountry((String) input.get("country"));
+            Offices result = this.officesService.saveOffice(officePayload);
+            return result;
+
+        };
+    }
+
 }
