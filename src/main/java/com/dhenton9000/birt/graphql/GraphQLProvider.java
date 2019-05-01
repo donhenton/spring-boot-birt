@@ -64,7 +64,12 @@ public class GraphQLProvider {
                
                 .type(newTypeWiring("Mutation").dataFetcher("createOffice", graphQLDataFetchers.createOfficeDataMutation()))
                 .type(newTypeWiring("AnnualReport")
-                          .dataFetcher("annualEarnings", graphQLDataFetchers.getAnnualTotalSalesDataFetcher()))
+                          .dataFetcher("annualEarnings", graphQLDataFetchers.getAnnualSalesTotalDataFetcher()))
+                .type(newTypeWiring("OfficeExplorer")
+                          .dataFetcher("salesTotal", graphQLDataFetchers.getOfficeExplorerSalesTotals()))
+                .type(newTypeWiring("ExtendedEmployee")
+                          .dataFetcher("salesTotal", graphQLDataFetchers.getExtendedEmployeeSalesTotals()))
+                
                 //something wrong with the property case so duplicating
                 .type(newTypeWiring("SecurityUsers")
                           .dataFetcher("userName", graphQLDataFetchers.userNameTranslator()))

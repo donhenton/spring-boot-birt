@@ -1,6 +1,6 @@
 package com.dhenton9000.birt.graphql;
 
- 
+import com.dhenton9000.birt.jpa.domain.Employees;
 import com.dhenton9000.birt.jpa.domain.Offices;
 import com.dhenton9000.birt.jpa.domain.SalesReport;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
@@ -10,7 +10,6 @@ import com.dhenton9000.birt.jpa.service.OfficesService;
 import com.dhenton9000.birt.jpa.service.security.GroupsService;
 import com.google.common.collect.ImmutableMap;
 import graphql.schema.DataFetcher;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +21,7 @@ import org.springframework.stereotype.Component;
 import com.dhenton9000.birt.jpa.domain.security.Users;
 import com.dhenton9000.birt.jpa.service.security.ApplicationsService;
 import com.dhenton9000.birt.jpa.service.security.UsersService;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Component
 public class GraphQLDataFetchers {
@@ -124,7 +124,7 @@ public class GraphQLDataFetchers {
 
     }
 
-    public DataFetcher<Float> getAnnualTotalSalesDataFetcher() {
+    public DataFetcher<Float> getAnnualSalesTotalDataFetcher() {
 
         return dataFetchingEnvironment -> {
 
@@ -153,4 +153,90 @@ public class GraphQLDataFetchers {
         };
 
     }
+
+    /**
+     * null errors are silent here, so if code errors/throws exception returned
+     * value is only null
+     *
+     * dataFetchingEnvironment.fields() field evoked to get here
+     *
+     *
+     * @return
+     */
+    DataFetcher<Float> getOfficeExplorerSalesTotals() {
+
+        return dataFetchingEnvironment -> {
+
+            // Object src = dataFetchingEnvironment.getSource(); Offices
+            // Object rt = dataFetchingEnvironment.getRoot(); null
+            AtomicReference salesTotals = new AtomicReference();
+            salesTotals.set(new Float(0.0f));
+            Offices src = (Offices) dataFetchingEnvironment.getSource();
+            src.getEmployees().forEach(emp -> {
+
+                emp.getCustomers().forEach(cust -> {
+                    cust.getOrders().forEach(order -> {
+
+                        order.getOrderDetails().forEach(detail -> {
+                            salesTotals.accumulateAndGet(
+                                    detail.getPriceEach(),
+                                    (current, given) -> {
+                                        return (Float) current + (Float) given;
+                                    }
+                            );
+
+                        });
+
+                    });
+
+                });
+
+            });
+
+            return (Float) salesTotals.get();
+
+        };
+    }
+
+    DataFetcher<Float> getExtendedEmployeeSalesTotals() {
+
+        return dataFetchingEnvironment -> {
+
+            Employees src = (Employees) dataFetchingEnvironment.getSource();
+            AtomicReference salesTotals = new AtomicReference();
+            salesTotals.set(new Float(0.0f));
+
+            src.getCustomers().forEach(cust -> {
+                cust.getOrders().forEach(order -> {
+
+                    order.getOrderDetails().forEach(detail -> {
+                        salesTotals.accumulateAndGet(
+                                detail.getPriceEach(),
+                                (current, given) -> {
+                                    return (Float) current + (Float) given;
+                                }
+                        );
+
+                    });
+
+                });
+
+            });
+
+//            Object rt = dataFetchingEnvironment.getRoot();
+//            if (rt == null ) {
+//                LOG.info("root null");
+//            } else {
+//                LOG.info("root "+rt.getClass().getName());
+//            }
+//             if (src == null ) {
+//                 LOG.info("src null");
+//            } else {
+//                 LOG.info(" src "+src.getClass().getName());
+//            }
+            return (Float) salesTotals.get();
+
+        };
+    }
+
 }

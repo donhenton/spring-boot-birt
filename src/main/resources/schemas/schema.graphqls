@@ -36,6 +36,7 @@ type OfficeExplorer {
      postalCode: String
      territory: String
      employees: [ExtendedEmployee]
+     salesTotal: Float
 
 }
 
@@ -66,7 +67,7 @@ type Book {
     id: ID
     name: String
     pageCount: Int
-    author: Author
+    
 }
 
 type Author {
@@ -81,7 +82,7 @@ type Employee {
     firstName: String
     email: String
     jobTitle: String
-    totalSales: Float
+    salesTotal: Float
 
 }
 
@@ -91,6 +92,7 @@ type ExtendedEmployee {
     firstName: String
     email: String
     jobTitle: String
+    salesTotal: Float
     customers: [Customer]
 
 }
@@ -99,7 +101,7 @@ type SalesReport {
     employeeNumber: ID!
     lastName: String
     firstName: String
-    totalSales: Float
+    salesTotal: Float
     
 
 }

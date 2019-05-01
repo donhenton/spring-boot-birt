@@ -84,12 +84,14 @@ query {
     getOfficeExplorers {
       officeCode
       postalCode
+      salesTotal
       phone
       employees {
         lastName
         firstName
         email
         employeeNumber
+        salesTotal
         customers {
           customerName
           customerNumber
