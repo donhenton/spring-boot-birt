@@ -50,7 +50,7 @@ heroku deploy:jar target/spring-boot-birt-0.0.1-SNAPSHOT.jar --app donhenton-spr
 Or you can use the maven deploy:
 * login onto heroku via the command line
 * answer prompt on browser (requires upgrade to CLI > 22)
-* mvn clean heroku:deploy
+* mvn clean heroku:deploy -Preact -DskipTests
 
 
 see https://devcenter.heroku.com/articles/deploying-executable-jar-files
