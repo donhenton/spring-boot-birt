@@ -58,9 +58,13 @@ export default class EmployeeControl extends Component {
   
   render() {
    // console.log("render")
+   if (this.state.currentEmployees.length ===0 ) {
+     return <div></div>
+   }
     return (
           <div className="row">
               <div className="column50Left">
+               <div className="row"><h3>Employees</h3></div>
                   <div className="column50Left">
                       <table className="table table-striped">
           
