@@ -1,0 +1,141 @@
+
+type Query {
+    bookById(id: ID): Book
+    officesById(id: ID): Offices
+    getSalesReport(employeeId: ID): SalesReport
+    getAnnualReport: [AnnualReport]
+    getSecurityGroups: [SecurityGroup]
+    getOfficeExplorers: [OfficeExplorer]
+}
+
+type Mutation {
+    createOffice(input: OfficeInput): Offices
+
+
+}
+
+input OfficeInput {
+     officeCode: String!
+     city: String!
+     phone: String
+     addressLine1: String
+     addressLine2: String
+     country: String!
+     postalCode: String
+     territory: String
+    
+}
+
+type OfficeExplorer {
+     officeCode: String!
+     city: String!
+     phone: String
+     addressLine1: String
+     addressLine2: String
+     country: String
+     postalCode: String
+     territory: String
+     employees: [ExtendedEmployee]
+     salesTotal: Float
+
+}
+
+
+type Offices {
+     officeCode: String!
+     city: String!
+     phone: String
+     addressLine1: String
+     addressLine2: String
+     country: String
+     postalCode: String
+     territory: String
+    
+
+
+}
+
+type Customer {
+
+    customerName:String
+    city: String
+    customerNumber:ID!
+    salesTotal: Float
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Employee {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    email: String
+    jobTitle: String
+    salesTotal: Float
+
+}
+
+type ExtendedEmployee {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    email: String
+    jobTitle: String
+    salesTotal: Float
+    customers: [Customer]
+
+}
+
+type SalesReport {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    salesTotal: Float
+    
+
+}
+
+type AnnualReport {
+    employeeNumber: ID!
+    lastName: String
+    firstName: String
+    annualEarnings: Float
+    
+
+}
+
+type SecurityGroup {
+    id: ID!
+    groupName: String!
+    applications: [SecurityApplications]
+    applicationsNotInGroup: [SecurityApplications]
+    users: [SecurityUsers]
+    usersNotInGroup: [SecurityUsers]
+    
+}
+
+type SecurityApplications {
+     id: ID!
+     applicationName:String!
+
+}
+
+type SecurityUsers {
+
+     userId: ID!
+     login: String!
+     userName: String!
+  
+}
+

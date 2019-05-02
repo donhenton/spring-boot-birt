@@ -1,0 +1,1 @@
+ mvn -Dspring-boot.run.mainClass=com.dhenton9000.birt.BirtApplication spring-boot:run

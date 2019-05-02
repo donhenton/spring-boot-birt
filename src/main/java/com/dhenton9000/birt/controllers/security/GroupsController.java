@@ -10,6 +10,7 @@ import com.dhenton9000.birt.controllers.support.ResourceNotFoundException;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
 import com.dhenton9000.birt.jpa.domain.security.Users;
 import com.dhenton9000.birt.jpa.domain.security.Groups;
+import com.dhenton9000.birt.jpa.domain.security.dto.GroupDTO;
 import com.dhenton9000.birt.jpa.service.security.GroupsService;
 import io.swagger.annotations.ApiOperation;
 import java.util.ArrayList;
@@ -25,28 +26,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/sec/groups")
-public class GroupsController implements GroupsService {
+public class GroupsController  {
 
     @Autowired
     private GroupsService groupsService;
 
     @RequestMapping(method = RequestMethod.GET, path = "/all", produces = "application/json")
     @ApiOperation(value = "Find All Groups", notes = "lists all Groups")
-    @Override
+   
     public List<Groups> findAll() {
         return groupsService.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/applications/{id}", produces = "application/json")
     @ApiOperation(value = "Find All Applications", notes = "lists all Applications for a group")
-    @Override
+   
     public List<Applications> findApplicationsForGroup(@PathVariable("id") Integer id) {
         return groupsService.findApplicationsForGroup(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/applications/not/{id}", produces = "application/json")
     @ApiOperation(value = "Find All Applications Not in Group", notes = "lists all Applications not contained in that group")
-    @Override
+   
     public List<Applications> findApplicationsNotInGroup(@PathVariable("id") Integer id) {
 
         Groups foundGroup = groupsService.findOne(id);
@@ -60,7 +61,7 @@ public class GroupsController implements GroupsService {
     
     @RequestMapping(method = RequestMethod.GET, path = "/users/not/{id}", produces = "application/json")
     @ApiOperation(value = "Find All Users Not in Group", notes = "lists all Users not contained in that group")
-    @Override
+ 
     public List<Users> findUsersNotInGroup(@PathVariable("id") Integer id) {
 
         Groups foundGroup = groupsService.findOne(id);
@@ -74,7 +75,7 @@ public class GroupsController implements GroupsService {
 
     @RequestMapping(method = RequestMethod.GET, path = "/users/{id}", produces = "application/json")
     @ApiOperation(value = "Find All Users", notes = "lists all Users for a group")
-    @Override
+ 
     public List<Users> findUsersForGroup(@PathVariable("id") Integer id) {
         Groups foundGroup = groupsService.findOne(id);
         if (foundGroup == null) {
@@ -85,21 +86,21 @@ public class GroupsController implements GroupsService {
 
     @RequestMapping(method = RequestMethod.GET, path = "/findOne/{id}", produces = "application/json")
     @ApiOperation(value = "Find A Group", notes = "find Group")
-    @Override
+ 
     public Groups findOne(@PathVariable("id") Integer id) {
         return groupsService.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/findByName/{name}", produces = "application/json")
     @ApiOperation(value = "Find A Group by name", notes = "find a group by group name")
-    @Override
+ 
     public List<Groups> findByName(@PathVariable("name") String name) {
         return groupsService.findByName(name);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/findGroup/containing/application/{appId}", produces = "application/json")
     @ApiOperation(value = "Find A Group by application", notes = "find a group that contains the specified application")
-    @Override
+ 
     public List<Groups> findGroupsContainsApplication(@PathVariable("appId") Integer appId) {
         return groupsService.findGroupsContainsApplication(appId);
     }
@@ -107,7 +108,7 @@ public class GroupsController implements GroupsService {
     @RequestMapping(method = RequestMethod.PUT, path = "/save", produces = "application/json")
     @ApiOperation(value = "Save A Group", notes = "Save changes to  a  Group")
     @ResponseStatus(HttpStatus.OK)
-    @Override
+ 
     public Groups save(@RequestBody Groups group) {
 
         Integer id = group.getId();
@@ -141,7 +142,7 @@ public class GroupsController implements GroupsService {
     @RequestMapping(method = RequestMethod.DELETE, path = "/delete", produces = "application/json")
     @ApiOperation(value = "delete a group", notes = "Delete a Group")
     @ResponseStatus(HttpStatus.OK)
-    @Override
+ 
     public void delete(@RequestBody Groups group) {
         Integer id = group.getId();
         Groups foundGroup = groupsService.findOne(id);
@@ -153,7 +154,7 @@ public class GroupsController implements GroupsService {
 
     @RequestMapping(method = RequestMethod.PUT, path = "/removeUser/{userId}/group/{groupId}", produces = "application/json")
     @ApiOperation(value = "remove a user from a group", notes = "remove a user from a group return the user removed")
-    @Override
+ 
     public Users removeUserFromGroup(@PathVariable("userId") Integer userId, @PathVariable("groupId") Integer groupId) {
 
         Groups foundGroup = groupsService.findOne(groupId);
@@ -166,7 +167,7 @@ public class GroupsController implements GroupsService {
     @RequestMapping(method = RequestMethod.PUT, path = "/addUser/{userId}/group/{groupId}", produces = "application/json")
     @ApiOperation(value = "add a user to a group", notes = "add a user to a group return the added user")
 
-    @Override
+ 
     public Users addUserToGroup(@PathVariable("userId") Integer userId, @PathVariable("groupId") Integer groupId) {
         Groups foundGroup = groupsService.findOne(groupId);
         if (foundGroup == null) {
@@ -177,7 +178,7 @@ public class GroupsController implements GroupsService {
 
     @RequestMapping(method = RequestMethod.PUT, path = "/removeApplication/{appId}/group/{groupId}", produces = "application/json")
     @ApiOperation(value = "remove an application from a group", notes = "remove an application from a group return the application removed")
-    @Override
+ 
     public Applications removeApplicationFromGroup(@PathVariable("appId") Integer appId, @PathVariable("groupId") Integer groupId) {
         Groups foundGroup = groupsService.findOne(groupId);
         if (foundGroup == null) {
@@ -188,7 +189,7 @@ public class GroupsController implements GroupsService {
 
     @RequestMapping(method = RequestMethod.PUT, path = "/addApplication/{appId}/group/{groupId}", produces = "application/json")
     @ApiOperation(value = "add an application to a group", notes = "add an application to a group return the added application")
-    @Override
+ 
     public Applications addApplicationToGroup(@PathVariable("appId") Integer appId, @PathVariable("groupId") Integer groupId) {
         Groups foundGroup = groupsService.findOne(groupId);
         if (foundGroup == null) {
@@ -197,4 +198,5 @@ public class GroupsController implements GroupsService {
         return groupsService.addApplicationToGroup(appId, groupId);
     }
 
+    
 }

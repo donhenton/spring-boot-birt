@@ -10,6 +10,7 @@ import com.dhenton9000.birt.controllers.support.ResourceAlreadyExistsException;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
 import com.dhenton9000.birt.jpa.domain.security.Groups;
 import com.dhenton9000.birt.jpa.domain.security.Users;
+import com.dhenton9000.birt.jpa.domain.security.dto.GroupDTO;
 import com.dhenton9000.birt.jpa.repositories.security.ApplicationsRepository;
 import com.dhenton9000.birt.jpa.repositories.security.GroupsRepository;
 import com.dhenton9000.birt.jpa.repositories.security.UsersRepository;
@@ -53,6 +54,18 @@ public class GroupsServiceImpl implements GroupsService {
 
         //  return this.check404(groupsRepository.findOne(id));
     }
+    
+   
+    @Override
+    public List<GroupDTO> findAllGroupDTOs() {
+        List<GroupDTO> groupDTOs = new ArrayList<GroupDTO>();
+        this.findAll().forEach(g -> {
+           groupDTOs.add(new GroupDTO(g)); 
+        });
+        
+        return groupDTOs;
+    }
+    
 
     @Override
     public List<Groups> findByName(String name) {

@@ -16,6 +16,7 @@ public interface EmployeesService {
     
     public List<Employees> getAllEmployees();
     public List<Orders> getOrdersForEmployee(Integer employeeId);
+    public SalesReport getSalesData(Integer employeeId);
     public List<SalesReport> getSalesData();
     public List<Employees> getEmployeesForOffice(String officeCode);
     public Employees getById(Integer employeeId);

@@ -13,6 +13,7 @@
             <li>Use of webjars for css/js allocation</li>
             <li>Spring boot basics</li>
             <li>JPA including Many-To-Many Mappings and integration with Jackson</li>
+            <li>Serving Data Access via Graphql</li>
         </ul>
          
          

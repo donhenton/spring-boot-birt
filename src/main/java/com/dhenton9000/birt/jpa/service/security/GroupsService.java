@@ -8,6 +8,7 @@ package com.dhenton9000.birt.jpa.service.security;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
 import com.dhenton9000.birt.jpa.domain.security.Groups;
 import com.dhenton9000.birt.jpa.domain.security.Users;
+import com.dhenton9000.birt.jpa.domain.security.dto.GroupDTO;
 
 import java.util.List;
 
@@ -44,5 +45,7 @@ public interface GroupsService {
     Applications removeApplicationFromGroup(Integer appId, Integer groupId);
 
     Applications addApplicationToGroup(Integer appId, Integer groupId);
+    
+    List<GroupDTO> findAllGroupDTOs();
 
 }

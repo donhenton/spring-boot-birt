@@ -5,7 +5,18 @@ database. This application is deployed to heroku at http://donhenton-spring-boot
 
 ## Netbeans Specific
 
-If built from the plugin a specific run time associate will be built see the nbactions.xml file. Select all the checkboxes when using the wizard.
+If built from the plugin a specific run time associate will be built see the 
+nbactions.xml file. Select all the checkboxes when using the wizard.
+
+## Building the App
+
+This command builds the app and creates the react javascript app This is what
+would be used to create the jar for heroku deploying
+
+```
+mvn clean package -DskipTests -Preact 
+```
+
 
 ## Running Locally 
 
@@ -24,6 +35,9 @@ On heroku this command will be in the Procfile and the port number will be $PORT
 
 In dev, DATABASE_URL in netbeans is set in the application-dev properites file,
 and on heroku, its set as a system property by Heroku
+
+With the advent of npm gulp build. runit.sh will run the dev and allow for 
+reloading of the app via live reload
 
 ## Deploying to Heroku
 

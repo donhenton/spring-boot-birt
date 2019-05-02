@@ -80,6 +80,21 @@
             <version>2.2.1</version>
         </dependency>
         
+        <!-- graphql -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java</artifactId>
+             <version>11.0</version>
+            
+        </dependency>
+            
+         <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+             <version>1.0</version>
+            
+        </dependency>
+        
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery-ui</artifactId>
@@ -107,7 +122,7 @@
                 </configuration>
             </plugin>
             
-           
+           <!--  https://phillipgreenii.github.io/running-npm-scripts-through-maven/   -->
             <plugin>
               <groupId>com.heroku.sdk</groupId>
               <artifactId>heroku-maven-plugin</artifactId>
@@ -116,8 +131,10 @@
               </configuration>
               <version>2.0.8</version>
             </plugin>
-
             
+       
+            
+      
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -137,4 +154,51 @@
             
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>react</id>
+            <build>
+                <plugins>
+           
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>exec-npm-install</id>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <arguments>
+                                        <argument>install</argument>
+                                    </arguments>
+                                </configuration>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+      
+                            <execution>
+                                <id>exec-gulp</id>
+                                <phase>prepare-package</phase>
+                      
+                                <configuration>
+                                    <executable>gulp</executable>
+                                    <arguments>
+                                        <argument>--dir</argument>
+                                        <argument>${project.artifactId}-${project.version}</argument>
+                                    </arguments>
+                                </configuration>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                     
+                </plugins>
+            </build>
+        </profile>
+        
+    </profiles>
 </project>
