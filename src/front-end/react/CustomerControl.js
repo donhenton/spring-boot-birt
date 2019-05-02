@@ -32,11 +32,7 @@ export default class CustomerControl extends Component {
       console.log(e)
   }
   }
-  
-  
-  
-  
-  
+
   static getDerivedStateFromProps(nextProps, prevState) {
   //  console.log(nextProps.customers);
     return {customers: nextProps.customers};
