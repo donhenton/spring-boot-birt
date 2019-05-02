@@ -16,13 +16,9 @@ export default class MainForm extends Component {
   constructor(props) {
     super(props);
     this.emptyOffice = {employees: []};
-    this.state = {offices: [], currentOffice: {employees: []}};
+    this.state = {offices: [], currentOffice: {officeCode: "-1",employees: []}};
   }
   componentDidMount() {
-
-    // console.log(this.props.officeData)
-    //this.state['offices'] = this.props.officeData;
-
 
     client.query({
       query: gql`
@@ -64,12 +60,11 @@ export default class MainForm extends Component {
   }
   static getDerivedStateFromProps(props, state) {
 
-    console.log("getDerivied")
     return null;
   }
   changeOffice(ev) {
     ev.preventDefault();
-    //console.log(ev.target.value)
+
     let newOffice = this.state.offices.filter(o => {
       return o.officeCode === ev.target.value;
 
@@ -107,7 +102,7 @@ export default class MainForm extends Component {
     let selectStyle = {width: "150px", display: selectShow};
 
 
-    console.log("mainform render")
+
     return (
           <div>
               <div className="row">
@@ -120,7 +115,7 @@ export default class MainForm extends Component {
           
               </div>
               <div className="row">
-                  <EmployeeControl employees={this.state.currentOffice.employees} />
+                  <EmployeeControl employees={this.state.currentOffice.employees} officeCode={this.state.currentOffice.officeCode} />
               </div>
           </div>
           )
