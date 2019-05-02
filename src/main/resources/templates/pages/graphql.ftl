@@ -9,6 +9,7 @@ window.graphqlUrl = "${graphqlUrl}";
 
 
  <h3>React Demo</h3>
+ <div class="row well">Demonstration of a graphQL query and a React front end</div>
 
 <div id="graphqlDemo"></div>
  

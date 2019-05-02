@@ -40,7 +40,12 @@ public class HomeController {
         model.addAttribute("graphqlUrl",graphqlUrl);
         return "pages/graphql";
     }
-    
+     @RequestMapping("/graphQLQueries")
+    public String graphqlQueries(Model model) {
+        model.addAttribute("appTitle", "GraphQL Queries");
+        
+        return "pages/graphqlQueries";
+    }
     
      @RequestMapping("/data")
     public String data(Model model) {
