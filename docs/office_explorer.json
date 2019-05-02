@@ -1,0 +1,782 @@
+{
+    "data": {
+        "getOfficeExplorers": [
+            {
+                "officeCode": "8",
+                "postalCode": "90027",
+                "salesTotal": 0,
+                "phone": "222.444.3333",
+                "employees": []
+            },
+            {
+                "officeCode": "1",
+                "postalCode": "94080",
+                "salesTotal": 44346.645,
+                "phone": "+1 650 219 4782",
+                "employees": [
+                    {
+                        "lastName": "Bow",
+                        "firstName": "Anthony",
+                        "email": "bhoward@classicmodelcars.com",
+                        "employeeNumber": "1143",
+                        "salesTotal": 0,
+                        "customers": []
+                    },
+                    {
+                        "lastName": "Murphy",
+                        "firstName": "Diane",
+                        "email": "dmurphy@classicmodelcars.com",
+                        "employeeNumber": "1002",
+                        "salesTotal": 0,
+                        "customers": []
+                    },
+                    {
+                        "lastName": "Jennings",
+                        "firstName": "Leslie",
+                        "email": "ljennings@classicmodelcars.com",
+                        "employeeNumber": "1165",
+                        "salesTotal": 33650.566,
+                        "customers": [
+                            {
+                                "customerName": "Signal Collectibles Ltd.",
+                                "customerNumber": "487",
+                                "salesTotal": 1430.94
+                            },
+                            {
+                                "customerName": "Mini Gifts Distributors Ltd.",
+                                "customerNumber": "124",
+                                "salesTotal": 18485.336
+                            },
+                            {
+                                "customerName": "Mini Wheels Co.",
+                                "customerNumber": "129",
+                                "salesTotal": 2178.18
+                            },
+                            {
+                                "customerName": "Technics Stores Inc.",
+                                "customerNumber": "161",
+                                "salesTotal": 3567.0806
+                            },
+                            {
+                                "customerName": "Corporate Gift Ideas Co.",
+                                "customerNumber": "321",
+                                "salesTotal": 4254
+                            },
+                            {
+                                "customerName": "The Sharp Gifts Warehouse",
+                                "customerNumber": "450",
+                                "salesTotal": 3735.0298
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Thompson",
+                        "firstName": "Leslie",
+                        "email": "lthompson@classicmodelcars.com",
+                        "employeeNumber": "1166",
+                        "salesTotal": 10696.068,
+                        "customers": [
+                            {
+                                "customerName": "Boards & Toys Co.",
+                                "customerNumber": "219",
+                                "salesTotal": 269.41998
+                            },
+                            {
+                                "customerName": "Men 'R' US Retailers, Ltd.",
+                                "customerNumber": "347",
+                                "salesTotal": 1422.0999
+                            },
+                            {
+                                "customerName": "West Coast Collectables Co.",
+                                "customerNumber": "475",
+                                "salesTotal": 1148.0001
+                            },
+                            {
+                                "customerName": "Toys4GrownUps.com",
+                                "customerNumber": "205",
+                                "salesTotal": 2916.7397
+                            },
+                            {
+                                "customerName": "Collectable Mini Designs Co.",
+                                "customerNumber": "239",
+                                "salesTotal": 2288.3699
+                            },
+                            {
+                                "customerName": "Signal Gift Stores",
+                                "customerNumber": "112",
+                                "salesTotal": 2651.4397
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Patterson",
+                        "firstName": "Mary",
+                        "email": "mpatterso@classicmodelcars.com",
+                        "employeeNumber": "1056",
+                        "salesTotal": 0,
+                        "customers": []
+                    },
+                    {
+                        "lastName": "Firrelli",
+                        "firstName": "Jeff",
+                        "email": "jfirrelli@classicmodelcars.com",
+                        "employeeNumber": "1076",
+                        "salesTotal": 0,
+                        "customers": []
+                    }
+                ]
+            },
+            {
+                "officeCode": "2",
+                "postalCode": "02107",
+                "salesTotal": 28110.92,
+                "phone": "+1 215 837 0825",
+                "employees": [
+                    {
+                        "lastName": "Patterson",
+                        "firstName": "Steve",
+                        "email": "spatterso@classicmodelcars.com",
+                        "employeeNumber": "1216",
+                        "salesTotal": 15911.059,
+                        "customers": [
+                            {
+                                "customerName": "Gifts4AllAges.com",
+                                "customerNumber": "362",
+                                "salesTotal": 2380.66
+                            },
+                            {
+                                "customerName": "Online Diecast Creations Co.",
+                                "customerNumber": "363",
+                                "salesTotal": 3682.27
+                            },
+                            {
+                                "customerName": "Diecast Classics Inc.",
+                                "customerNumber": "157",
+                                "salesTotal": 3365.5398
+                            },
+                            {
+                                "customerName": "Marta's Replicas Co.",
+                                "customerNumber": "286",
+                                "salesTotal": 2890.9402
+                            },
+                            {
+                                "customerName": "FunGiftIdeas.com",
+                                "customerNumber": "462",
+                                "salesTotal": 2849.25
+                            },
+                            {
+                                "customerName": "Auto-Moto Classics Inc.",
+                                "customerNumber": "198",
+                                "salesTotal": 742.39996
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Firrelli",
+                        "firstName": "Julie",
+                        "email": "jfirrelli@classicmodelcars.com",
+                        "employeeNumber": "1188",
+                        "salesTotal": 12199.873,
+                        "customers": [
+                            {
+                                "customerName": "Collectables For Less Inc.",
+                                "customerNumber": "379",
+                                "salesTotal": 2333.69
+                            },
+                            {
+                                "customerName": "Online Mini Collectables",
+                                "customerNumber": "204",
+                                "salesTotal": 1420.2101
+                            },
+                            {
+                                "customerName": "Cambridge Collectables Co.",
+                                "customerNumber": "173",
+                                "salesTotal": 1114.62
+                            },
+                            {
+                                "customerName": "Diecast Collectables",
+                                "customerNumber": "495",
+                                "salesTotal": 1832.1001
+                            },
+                            {
+                                "customerName": "Mini Creations Ltd.",
+                                "customerNumber": "320",
+                                "salesTotal": 3329.5205
+                            },
+                            {
+                                "customerName": "Classic Gift Ideas, Inc",
+                                "customerNumber": "339",
+                                "salesTotal": 2169.73
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "officeCode": "3",
+                "postalCode": "10022",
+                "salesTotal": 36652.652,
+                "phone": "212 555 3000",
+                "employees": [
+                    {
+                        "lastName": "Tseng",
+                        "firstName": "Foon Yue",
+                        "email": "ftseng@classicmodelcars.com",
+                        "employeeNumber": "1286",
+                        "salesTotal": 15553.739,
+                        "customers": [
+                            {
+                                "customerName": "Muscle Machine Inc",
+                                "customerNumber": "151",
+                                "salesTotal": 5335.2397
+                            },
+                            {
+                                "customerName": "Super Scale Inc.",
+                                "customerNumber": "455",
+                                "salesTotal": 2183.6902
+                            },
+                            {
+                                "customerName": "American Souvenirs Inc",
+                                "customerNumber": "168",
+                                "salesTotal": 0
+                            },
+                            {
+                                "customerName": "Classic Legends Inc.",
+                                "customerNumber": "424",
+                                "salesTotal": 2196.07
+                            },
+                            {
+                                "customerName": "Microscale Inc.",
+                                "customerNumber": "456",
+                                "salesTotal": 884.94
+                            },
+                            {
+                                "customerName": "Québec Home Shopping Network",
+                                "customerNumber": "233",
+                                "salesTotal": 2299.3298
+                            },
+                            {
+                                "customerName": "Vitachrome Inc.",
+                                "customerNumber": "181",
+                                "salesTotal": 2654.47
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Vanauf",
+                        "firstName": "George",
+                        "email": "gvanauf@classicmodelcars.com",
+                        "employeeNumber": "1323",
+                        "salesTotal": 21098.926,
+                        "customers": [
+                            {
+                                "customerName": "Tekni Collectables Inc.",
+                                "customerNumber": "328",
+                                "salesTotal": 1964.9901
+                            },
+                            {
+                                "customerName": "Canadian Gift Exchange Network",
+                                "customerNumber": "202",
+                                "salesTotal": 2317.4998
+                            },
+                            {
+                                "customerName": "Gift Depot Inc.",
+                                "customerNumber": "175",
+                                "salesTotal": 2723.3098
+                            },
+                            {
+                                "customerName": "Mini Classics",
+                                "customerNumber": "319",
+                                "salesTotal": 2470.79
+                            },
+                            {
+                                "customerName": "Gift Ideas Corp.",
+                                "customerNumber": "447",
+                                "salesTotal": 1664.4
+                            },
+                            {
+                                "customerName": "Land of Toys Inc.",
+                                "customerNumber": "131",
+                                "salesTotal": 5101.9097
+                            },
+                            {
+                                "customerName": "Royal Canadian Collectables, Ltd.",
+                                "customerNumber": "260",
+                                "salesTotal": 2247.67
+                            },
+                            {
+                                "customerName": "Motor Mint Distributors Inc.",
+                                "customerNumber": "486",
+                                "salesTotal": 2608.3499
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "officeCode": "4",
+                "postalCode": "75017",
+                "salesTotal": 95865.25,
+                "phone": "+33 14 723 4404",
+                "employees": [
+                    {
+                        "lastName": "Gerard",
+                        "firstName": "Martin",
+                        "email": "gmartin@classicmodelcars.com",
+                        "employeeNumber": "1702",
+                        "salesTotal": 11645.713,
+                        "customers": [
+                            {
+                                "customerName": "Enaco Distributors",
+                                "customerNumber": "216",
+                                "salesTotal": 2042.0199
+                            },
+                            {
+                                "customerName": "CAF Imports",
+                                "customerNumber": "344",
+                                "salesTotal": 1364.52
+                            },
+                            {
+                                "customerName": "Precious Collectables",
+                                "customerNumber": "376",
+                                "salesTotal": 0
+                            },
+                            {
+                                "customerName": "Vida Sport, Ltd",
+                                "customerNumber": "298",
+                                "salesTotal": 3474.33
+                            },
+                            {
+                                "customerName": "Corrida Auto Replicas, Ltd",
+                                "customerNumber": "458",
+                                "salesTotal": 3365.5994
+                            },
+                            {
+                                "customerName": "Iberia Gift Imports, Corp.",
+                                "customerNumber": "484",
+                                "salesTotal": 1399.24
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Bondur",
+                        "firstName": "Loui",
+                        "email": "lbondur@classicmodelcars.com",
+                        "employeeNumber": "1337",
+                        "salesTotal": 17719.361,
+                        "customers": [
+                            {
+                                "customerName": "Lyon Souveniers",
+                                "customerNumber": "250",
+                                "salesTotal": 2260.05
+                            },
+                            {
+                                "customerName": "La Corne D'abondance, Co.",
+                                "customerNumber": "172",
+                                "salesTotal": 2613.9604
+                            },
+                            {
+                                "customerName": "Marseille Mini Autos",
+                                "customerNumber": "350",
+                                "salesTotal": 2309.93
+                            },
+                            {
+                                "customerName": "Reims Collectables",
+                                "customerNumber": "353",
+                                "salesTotal": 3868.0598
+                            },
+                            {
+                                "customerName": "Saveley & Henriot, Co.",
+                                "customerNumber": "146",
+                                "salesTotal": 4122.47
+                            },
+                            {
+                                "customerName": "Auto Canal+ Petit",
+                                "customerNumber": "406",
+                                "salesTotal": 2544.89
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Castillo",
+                        "firstName": "Pamela",
+                        "email": "pcastillo@classicmodelcars.com",
+                        "employeeNumber": "1401",
+                        "salesTotal": 27879.146,
+                        "customers": [
+                            {
+                                "customerName": "Amica Models & Co.",
+                                "customerNumber": "249",
+                                "salesTotal": 2882.17
+                            },
+                            {
+                                "customerName": "Frau da Collezione",
+                                "customerNumber": "473",
+                                "salesTotal": 843.04004
+                            },
+                            {
+                                "customerName": "Petit Auto",
+                                "customerNumber": "314",
+                                "salesTotal": 2337.3596
+                            },
+                            {
+                                "customerName": "Royale Belge",
+                                "customerNumber": "381",
+                                "salesTotal": 921.56
+                            },
+                            {
+                                "customerName": "Salzburg Collectables",
+                                "customerNumber": "382",
+                                "salesTotal": 4055.9094
+                            },
+                            {
+                                "customerName": "Danish Wholesale Imports",
+                                "customerNumber": "145",
+                                "salesTotal": 3889.3604
+                            },
+                            {
+                                "customerName": "L'ordine Souveniers",
+                                "customerNumber": "386",
+                                "salesTotal": 4334.75
+                            },
+                            {
+                                "customerName": "Heintze Collectables",
+                                "customerNumber": "227",
+                                "salesTotal": 3031.2402
+                            },
+                            {
+                                "customerName": "Mini Auto Werke",
+                                "customerNumber": "452",
+                                "salesTotal": 1471.25
+                            },
+                            {
+                                "customerName": "Rovelli Gifts",
+                                "customerNumber": "278",
+                                "salesTotal": 4112.51
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Hernandez",
+                        "firstName": "Gerard",
+                        "email": "ghernande@classicmodelcars.com",
+                        "employeeNumber": "1370",
+                        "salesTotal": 38620.97,
+                        "customers": [
+                            {
+                                "customerName": "Atelier graphique",
+                                "customerNumber": "103",
+                                "salesTotal": 645.67
+                            },
+                            {
+                                "customerName": "La Rochelle Gifts",
+                                "customerNumber": "119",
+                                "salesTotal": 5143.4604
+                            },
+                            {
+                                "customerName": "Daedalus Designs Imports",
+                                "customerNumber": "171",
+                                "salesTotal": 1909.48
+                            },
+                            {
+                                "customerName": "Euro+ Shopping Channel",
+                                "customerNumber": "141",
+                                "salesTotal": 25222.25
+                            },
+                            {
+                                "customerName": "Auto Associés & Cie.",
+                                "customerNumber": "256",
+                                "salesTotal": 1790.7802
+                            },
+                            {
+                                "customerName": "Mini Caravy",
+                                "customerNumber": "209",
+                                "salesTotal": 1886.13
+                            },
+                            {
+                                "customerName": "Alpha Cognac",
+                                "customerNumber": "242",
+                                "salesTotal": 2023.2
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Bondur",
+                        "firstName": "Gerard",
+                        "email": "athompson@classicmodelcars.com",
+                        "employeeNumber": "1102",
+                        "salesTotal": 0,
+                        "customers": []
+                    }
+                ]
+            },
+            {
+                "officeCode": "5",
+                "postalCode": "102-8578",
+                "salesTotal": 13904.46,
+                "phone": "+81 33 224 5000",
+                "employees": [
+                    {
+                        "lastName": "Nishi",
+                        "firstName": "Mami",
+                        "email": "mnishi@classicmodelcars.com",
+                        "employeeNumber": "1621",
+                        "salesTotal": 13904.46,
+                        "customers": [
+                            {
+                                "customerName": "Tokyo Collectables, Ltd",
+                                "customerNumber": "398",
+                                "salesTotal": 3237.8499
+                            },
+                            {
+                                "customerName": "Osaka Souveniers Co.",
+                                "customerNumber": "177",
+                                "salesTotal": 1998.28
+                            },
+                            {
+                                "customerName": "Cruz & Sons Co.",
+                                "customerNumber": "385",
+                                "salesTotal": 2498.0798
+                            },
+                            {
+                                "customerName": "King Kong Collectables, Co.",
+                                "customerNumber": "211",
+                                "salesTotal": 1306.71
+                            },
+                            {
+                                "customerName": "Dragon Souveniers, Ltd.",
+                                "customerNumber": "148",
+                                "salesTotal": 4863.54
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Kato",
+                        "firstName": "Yoshimi",
+                        "email": "ekato@classicmodelcars.com",
+                        "employeeNumber": "1625",
+                        "salesTotal": 0,
+                        "customers": []
+                    }
+                ]
+            },
+            {
+                "officeCode": "6",
+                "postalCode": "438974",
+                "salesTotal": 36783.96,
+                "phone": "+61 2 9264 2451",
+                "employees": [
+                    {
+                        "lastName": "Fixter",
+                        "firstName": "Andy",
+                        "email": "afixter@classicmodelcars.com",
+                        "employeeNumber": "1611",
+                        "salesTotal": 18755.945,
+                        "customers": [
+                            {
+                                "customerName": "Australian Collectables, Ltd",
+                                "customerNumber": "471",
+                                "salesTotal": 2070.96
+                            },
+                            {
+                                "customerName": "Souveniers And Things Co.",
+                                "customerNumber": "282",
+                                "salesTotal": 4378.7104
+                            },
+                            {
+                                "customerName": "Australian Gift Network, Co",
+                                "customerNumber": "333",
+                                "salesTotal": 1658.3099
+                            },
+                            {
+                                "customerName": "Australian Collectors, Co.",
+                                "customerNumber": "114",
+                                "salesTotal": 5752.4604
+                            },
+                            {
+                                "customerName": "Anna's Decorations, Ltd",
+                                "customerNumber": "276",
+                                "salesTotal": 4895.5107
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Marsh",
+                        "firstName": "Peter",
+                        "email": "pmarsh@classicmodelcars.com",
+                        "employeeNumber": "1612",
+                        "salesTotal": 18028.023,
+                        "customers": [
+                            {
+                                "customerName": "Extreme Desk Decorations, Ltd",
+                                "customerNumber": "412",
+                                "salesTotal": 2646.6606
+                            },
+                            {
+                                "customerName": "Kelly's Gift Shop",
+                                "customerNumber": "496",
+                                "salesTotal": 4640.39
+                            },
+                            {
+                                "customerName": "Down Under Souveniers, Inc",
+                                "customerNumber": "323",
+                                "salesTotal": 4647.8394
+                            },
+                            {
+                                "customerName": "GiftsForHim.com",
+                                "customerNumber": "357",
+                                "salesTotal": 2651.79
+                            },
+                            {
+                                "customerName": "Handji Gifts& Co",
+                                "customerNumber": "166",
+                                "salesTotal": 3441.3398
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Patterson",
+                        "firstName": "William",
+                        "email": "wpatterson@classicmodelcars.com",
+                        "employeeNumber": "1088",
+                        "salesTotal": 0,
+                        "customers": []
+                    },
+                    {
+                        "lastName": "King",
+                        "firstName": "Tom",
+                        "email": "tking@classicmodelcars.com",
+                        "employeeNumber": "1619",
+                        "salesTotal": 0,
+                        "customers": []
+                    }
+                ]
+            },
+            {
+                "officeCode": "7",
+                "postalCode": "EC2N 1HN",
+                "salesTotal": 46645.684,
+                "phone": "+44 20 7877 2031",
+                "employees": [
+                    {
+                        "lastName": "Bott",
+                        "firstName": "Larry",
+                        "email": "lbott@classicmodelcars.com",
+                        "employeeNumber": "1501",
+                        "salesTotal": 23345.934,
+                        "customers": [
+                            {
+                                "customerName": "Oulu Toy Supplies, Inc.",
+                                "customerNumber": "311",
+                                "salesTotal": 3043.8003
+                            },
+                            {
+                                "customerName": "UK Collectables, Ltd.",
+                                "customerNumber": "201",
+                                "salesTotal": 3147.53
+                            },
+                            {
+                                "customerName": "Double Decker Gift Stores, Ltd",
+                                "customerNumber": "489",
+                                "salesTotal": 1189.3
+                            },
+                            {
+                                "customerName": "Toys of Finland, Co.",
+                                "customerNumber": "186",
+                                "salesTotal": 3172.5703
+                            },
+                            {
+                                "customerName": "AV Stores, Co.",
+                                "customerNumber": "187",
+                                "salesTotal": 4645.3096
+                            },
+                            {
+                                "customerName": "Suominen Souveniers",
+                                "customerNumber": "334",
+                                "salesTotal": 3312.1501
+                            },
+                            {
+                                "customerName": "giftsbymail.co.uk",
+                                "customerNumber": "240",
+                                "salesTotal": 2313.4497
+                            },
+                            {
+                                "customerName": "Stylish Desk Decors, Co.",
+                                "customerNumber": "324",
+                                "salesTotal": 2521.83
+                            }
+                        ]
+                    },
+                    {
+                        "lastName": "Jones",
+                        "firstName": "Barry",
+                        "email": "bjones@classicmodelcars.com",
+                        "employeeNumber": "1504",
+                        "salesTotal": 23299.746,
+                        "customers": [
+                            {
+                                "customerName": "Herkku Gifts",
+                                "customerNumber": "167",
+                                "salesTotal": 3293.2007
+                            },
+                            {
+                                "customerName": "Baane Mini Imports",
+                                "customerNumber": "121",
+                                "salesTotal": 3474.3599
+                            },
+                            {
+                                "customerName": "Norway Gifts By Mail, Co.",
+                                "customerNumber": "299",
+                                "salesTotal": 2350.8904
+                            },
+                            {
+                                "customerName": "Clover Collections, Co.",
+                                "customerNumber": "189",
+                                "salesTotal": 1805.92
+                            },
+                            {
+                                "customerName": "Bavarian Collectables Imports, Co.",
+                                "customerNumber": "415",
+                                "salesTotal": 1180.0499
+                            },
+                            {
+                                "customerName": "Blauer See Auto, Co.",
+                                "customerNumber": "128",
+                                "salesTotal": 2376.6902
+                            },
+                            {
+                                "customerName": "Volvo Model Replicas, Co",
+                                "customerNumber": "144",
+                                "salesTotal": 2266.4902
+                            },
+                            {
+                                "customerName": "Scandinavian Gift Ideas",
+                                "customerNumber": "448",
+                                "salesTotal": 3708.7
+                            },
+                            {
+                                "customerName": "Toms Spezialitäten, Ltd",
+                                "customerNumber": "259",
+                                "salesTotal": 2843.4397
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "officeCode": "9",
+                "postalCode": "02107",
+                "salesTotal": 0,
+                "phone": "+1 215 837 0825",
+                "employees": []
+            },
+            {
+                "officeCode": "11",
+                "postalCode": "45632-7890",
+                "salesTotal": 0,
+                "phone": "367-667-4478",
+                "employees": []
+            }
+        ]
+    }
+}
