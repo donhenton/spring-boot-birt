@@ -64,6 +64,36 @@
 			"response": []
 		},
 		{
+			"name": "spring boot graphql heroku",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"query\":\"{getAnnualReport {employeeNumber lastName annualEarnings}}\"}"
+				},
+				"url": {
+					"raw": "http://donhenton-spring-boot.herokuapp.com/graphql",
+					"protocol": "http",
+					"host": [
+						"donhenton-spring-boot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "spring boot graphql securityGroups",
 			"request": {
 				"method": "POST",
@@ -134,65 +164,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"query\": \"mutation { createOffice (input: { officeCode: \\\"8\\\", city:\\\"Blasting Cap\\\", phone:\\\"367-667-4478\\\", addressLine1: \\\"100 N South St\\\", addressLine2: \\\"Apt 100\\\", postalCode: \\\"45632-7890\\\", territory: \\\"bonzo\\\",country: \\\"USA\\\"}) {officeCode,city} }\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:9000/graphql",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9000",
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "spring boot graphql office mutation Copy",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"mutation\":\"{ createOffice (input: { \\\"officeCode\\\": \\\"8\\\", \\\"city\\\":\\\"Blasting Cap\\\", \\\"phone\\\":\\\"367-667-4478\\\", \\\"addressLine1\\\": \\\"100 N South St\\\", \\\"addressLine2\\\": \\\"Apt 100\\\", \\\"postalCode\\\": \\\"45632-7890\\\", \\\"territory\\\": \\\"bonzo\\\"}) {officeCode,city} }\"}\n\n\n\n "
-				},
-				"url": {
-					"raw": "http://localhost:9000/graphql",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9000",
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "spring boot graphql salesReport",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"query\":\"{getSalesReport(employeeId:1337) {lastName firstName salesTotal} }\"}\n\n\n\n "
+					"raw": "{\n    \"query\": \"mutation { createOffice (input: { officeCode: \\\"11\\\", city:\\\"Blasting Cap\\\", phone:\\\"367-667-4478\\\", addressLine1: \\\"100 N South St\\\", addressLine2: \\\"Apt 100\\\", postalCode: \\\"45632-7890\\\", territory: \\\"bonzo\\\",country: \\\"USA\\\"}) {officeCode,city} }\"\n}"
 				},
 				"url": {
 					"raw": "http://localhost:9000/graphql",
