@@ -43,8 +43,7 @@
 }
 
 ```
-
-Other report
+## Other report
 
 ```
 {
