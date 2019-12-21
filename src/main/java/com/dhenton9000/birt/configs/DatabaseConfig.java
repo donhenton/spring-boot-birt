@@ -65,9 +65,9 @@ public class DatabaseConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         String url = "jdbc:postgresql://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath();
-       // log.debug("url "+url);
+        log.debug("url "+url);
         dataSource.setUrl(url);
-       // log.debug("info user "+dbUrl.getUserInfo());
+        log.debug("info user "+dbUrl.getUserInfo());
         dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
         dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
         return dataSource;
