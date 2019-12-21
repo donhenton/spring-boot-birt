@@ -1,0 +1,1 @@
+mvn clean package -DskipTests -Preact && docker build --tag spring-boot-birt  .
