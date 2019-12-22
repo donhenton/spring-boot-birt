@@ -68,3 +68,22 @@ see https://github.com/donhenton/webjar-app
 ## Application Location (Locally)
 
 http://localhost:9000
+
+## AWS Notes
+
+### Docker Compose File
+```yml
+version: '3.1'
+services:
+    boot:
+        container_name: boot
+        ports:
+            - "9000:9000"
+        image: 235926060045.dkr.ecr.us-east-2.amazonaws.com/spring-boot-birt:latest
+        environment:
+            - DATABASE_URL=postgres://user:password@databaseDNS:5432/jdatabase
+            - spring.profiles.active=aws
+```
+Unlike heroku the props files are in charge of specifying the port
+See <https://github.com/donhenton/cdk-sandbox> for more on setting up the docker images, pushing tags etc
+
