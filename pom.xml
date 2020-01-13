@@ -84,14 +84,14 @@
         <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java</artifactId>
-             <version>11.0</version>
+            <version>11.0</version>
             
         </dependency>
             
-         <dependency>
+        <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
-             <version>1.0</version>
+            <version>1.0</version>
             
         </dependency>
         
@@ -110,7 +110,7 @@
             <groupId>com.dhenton9000.webjars</groupId>
             <artifactId>webjar-app</artifactId>
             <version>1.0-SNAPSHOT</version>
-         </dependency>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -122,14 +122,14 @@
                 </configuration>
             </plugin>
             
-           <!--  https://phillipgreenii.github.io/running-npm-scripts-through-maven/   -->
+            <!--  https://phillipgreenii.github.io/running-npm-scripts-through-maven/   -->
             <plugin>
-              <groupId>com.heroku.sdk</groupId>
-              <artifactId>heroku-maven-plugin</artifactId>
-              <configuration>
-                <appName>donhenton-spring-boot</appName>
-              </configuration>
-              <version>2.0.8</version>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <configuration>
+                    <appName>donhenton-spring-boot</appName>
+                </configuration>
+                <version>2.0.8</version>
             </plugin>
             
        
@@ -143,7 +143,7 @@
                     <includes>
                         <include>**/*Test*.java</include>
                     </includes>
-<!--                    <systemPropertyVariables>
+                    <!--                    <systemPropertyVariables>
                         <DATABASE_URL>bonzo</DATABASE_URL>
                          
                     </systemPropertyVariables>-->
@@ -154,6 +154,19 @@
             
         </plugins>
     </build>
+    
+    <repositories>
+        <repository>
+            <id>webjar-app-mvn-repo</id>
+            <url>https://raw.github.com/donhenton/webjar-app/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    
     <profiles>
         <profile>
             <id>react</id>
