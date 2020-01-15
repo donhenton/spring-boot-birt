@@ -58,7 +58,8 @@ see https://devcenter.heroku.com/articles/deploying-executable-jar-files
 ## Database loading
 
 Database instructions 
-can be found at https://github.com/donhenton/dbscripts/blob/master/loading_to_heroku.md
+can be found at https://github.com/donhenton/dbscripts/blob/master/loading_to_heroku.md. For aws you can use
+the procedure here: https://github.com/donhenton/postgres-sandbox/tree/master/jdatabase_backup
 
 ## Webjar project
 
