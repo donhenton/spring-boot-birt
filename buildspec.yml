@@ -12,7 +12,7 @@ phases:
       - export NPM_CONFIG_PREFIX=~/.npm-global
       - echo prefix ${NPM_CONFIG_PREFIX}
       - npm install -g gulp
-      - npm install -g node-sass
+      - npm install -g node-sass --unsafe-perm
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...$AWS_DEFAULT_REGION...
