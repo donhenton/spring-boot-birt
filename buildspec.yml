@@ -7,7 +7,9 @@ phases:
       docker: 18
     commands:
       - echo installng docker phase ...........
-      - npm install -g gulp
+      - mkdir ~/.npm-global
+      - export PATH=~/.npm-global/bin:$PATH
+      - sudo npm install -g gulp
       - npm install -g node-sass
   pre_build:
     commands:
