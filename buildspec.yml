@@ -9,6 +9,8 @@ phases:
       - echo installng docker phase ...........
       - mkdir ~/.npm-global
       - export PATH=~/.npm-global/bin:$PATH
+      - export NPM_CONFIG_PREFIX=~/.npm-global
+      - echo prefix ${NPM_CONFIG_PREFIX}
       - npm install -g gulp
       - npm install -g node-sass
   pre_build:
