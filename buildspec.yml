@@ -7,9 +7,9 @@ phases:
       docker: 18
     commands:
       - echo installng docker phase ...........
-      - mkdir ~/.npm-global
-      - export PATH=~/.npm-global/bin:$PATH
-      - export NPM_CONFIG_PREFIX=~/.npm-global
+      - mkdir /root/.npm-global
+      - export PATH=/root/.npm-global/bin:$PATH
+      - export NPM_CONFIG_PREFIX=/root/.npm-global
       - echo prefix ${NPM_CONFIG_PREFIX}
       - npm install -g gulp
       - npm install -g node-sass --unsafe-perm
