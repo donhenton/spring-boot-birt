@@ -1,0 +1,42 @@
+# uses amazon managed build env 2.0
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+    commands:
+      - echo installng docker phase ...........
+      - npm install -g gulp
+      - npm install -g node-sass
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...$AWS_DEFAULT_REGION...
+      - aws --version
+      - $(aws ecr get-login --region us-east-2 --no-include-email)
+      - REPOSITORY_URI=235926060045.dkr.ecr.us-east-2.amazonaws.com/spring-boot-birt
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean package -DskipTests -Preact
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"birt-application","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinitions.json 
+artifacts:
+    files: imagedefinitions.json
+
+# artifacts:
+#   files:
+#     -  target/spring-boot-birt-0.0.1-SNAPSHOT.jar
+#   discard-paths: yes
+
