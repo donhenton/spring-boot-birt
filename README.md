@@ -86,5 +86,3 @@ services:
             - spring.profiles.active=aws
 ```
 Unlike heroku the props files are in charge of specifying the port
-See <https://github.com/donhenton/cdk-sandbox> for more on setting up the docker images, pushing tags etc
-
