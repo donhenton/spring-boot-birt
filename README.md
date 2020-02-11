@@ -1,7 +1,7 @@
 # Spring Boot Birt
 
 Application using Spring Boot to expose a rest service for the BIRT
-database. This application is deployed to heroku at http://donhenton-spring-boot.herokuapp.com/
+database. This application is deployed to aws at http://birt.awsdhenton.com
 
 ## Netbeans Specific
 
