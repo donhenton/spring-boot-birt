@@ -18,7 +18,8 @@ phases:
       - echo Logging in to Amazon ECR...$AWS_DEFAULT_REGION...
       - aws --version
       - $(aws ecr get-login --region us-east-2 --no-include-email)
-      - REPOSITORY_URI=235926060045.dkr.ecr.us-east-2.amazonaws.com/spring-boot-birt
+      - AWS_ACCOUNT_ID=`echo $CODEBUILD_BUILD_ARN | awk -F":" '{print $5}'`
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/spring-boot-birt
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
